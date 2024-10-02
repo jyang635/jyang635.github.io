@@ -1,11 +1,10 @@
 theme: minima # Jekyll theme applied globally
 title: "My Data Science Portfolio"
+description: "Projects, blogs, and insights from a data scientist"
 url: "https://<username>.github.io"
-author:
+author: 
   name: "Your Name"
   email: "your.email@example.com"
-
-social:
-  github: "https://github.com/<username>"
-  linkedin: "https://linkedin.com/in/your-profile"
-  twitter: "https://twitter.com/your-profile"
+  social:
+    github: https://github.com/<username>
+    linkedin: https://linkedin.com/in/your-profile
