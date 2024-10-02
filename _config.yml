@@ -4,6 +4,16 @@ title: "Junkai's website"
 description: "Man! What can I say?"
 #log: /assets/imgs/We.png
 url: "https://jyang635.github.io"
-header_pages:
-  - about.html
-  - portfolio.html
+# Custom Navigation Links
+nav:
+  - name: "Home"
+    url: "/"
+  - name: "About"
+    url: "/about"
+  - name: "Projects"
+    url: "/projects"
+  - name: "Blog"
+    url: "/blog"
+  - name: "Contact"
+    url: "/contact"
+
