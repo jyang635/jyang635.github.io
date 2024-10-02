@@ -2,7 +2,7 @@ theme: minima # Jekyll theme applied globally
 # Site settings
 title: "My Data Science Portfolio"
 description: "Projects, blog posts, and insights by a data scientist"
-url: "https://<username>.github.io"
+url: "https://jyang635.github.io"
 
 # Social media contact info
 social:
