@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="{{ site.lang | default: "en-US" }}">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{{ page.title | escape }} | {{ site.title | escape }}</title>
+    <link rel="stylesheet" href="{{ "/assets/main.css" | relative_url }}">
+  </head>
+  <body>
+    <header>
+      <h1><a href="{{ site.baseurl | default: "/" }}">{{ site.title }}</a></h1>
+      <p>{{ site.description }}</p>
+    </header>
+
+    <main>
+      {{ content }}
+    </main>
+
+    <footer>
+      <p>
+        Contact me via: 
+        <a href="mailto:{{ site.social.email }}">{{ site.social.email }}</a> |
+        <a href="{{ site.social.github }}" target="_blank">GitHub</a> |
+        <a href="{{ site.social.linkedin }}" target="_blank">LinkedIn</a> |
+        <a href="{{ site.social.twitter }}" target="_blank">Twitter</a>
+      </p>
+      <p>{{ site.title }} &copy; {{ site.time | date: "%Y" }}</p>
+    </footer>
+  </body>
+</html>
