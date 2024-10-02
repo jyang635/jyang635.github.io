@@ -2,7 +2,7 @@ theme: minima # Jekyll theme applied globally
 # Site settings
 title: "Junkai's website"
 description: "Projects, blog posts, and insights by a data scientist"
-log: /assets/imgs/We are here.png
+log: /assets/imgs/We.png
 url: "https://jyang635.github.io"
 author: 
   name: "Junkai Yang"
