@@ -1,19 +1,13 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
-    <title>Welcome to My Website</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{{ site.title }}</title> <!-- Jekyll variable from _config.yml -->
 </head>
 <body>
-    <h1>Hello, I'm a Data Scientist!</h1>
-    <p>Welcome to my personal website. I work on data science, AI, and more.</p>
+    <h1>Welcome to {{ site.title }}</h1>
+    <p>{{ site.description }}</p>
+    <p>This is my custom homepage content written in HTML.</p>
 </body>
-<nav>
-    <ul>
-        <li><a href="index.html">Home</a></li>
-        <li><a href="about.html">About Me</a></li>
-        <li><a href="portfolio.html">Portfolio</a></li>
-        <li><a href="blog.html">Blog</a></li>
-        <li><a href="contact.html">Contact</a></li>
-    </ul>
-</nav>
 </html>
