@@ -1,8 +1,13 @@
 /* Style for the navigation menu */
 .top-nav {
-  position: absolute;
-  top: 10px; /* Adjust as necessary */
-  right: 20px; /* Adjust as necessary */
+  position: fixed;
+  top: 0; /* Move to the very top */
+  left: 0; /* Start from the left edge */
+  width: 100%; /* Take full width */
+  background-color: #fff; /* Add background for visibility */
+  z-index: 1000; /* Ensure it stays on top */
+  padding: 10px 20px; /* Add padding for spacing */
+  box-shadow: 0 2px 4px rgba(0,0,0,0.1); /* Optional: add subtle shadow */
 }
 
 .top-nav ul {
