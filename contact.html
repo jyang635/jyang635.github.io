@@ -251,76 +251,15 @@
     </main>
 
     <!-- 页脚 -->
-    <footer class="bg-gray-900 text-white py-12">
-        <div class="container mx-auto px-4">
-            <div class="grid md:grid-cols-4 gap-8">
-                <div>
-                    <h3 class="text-xl font-bold mb-4">Junkai Yang</h3>
-                    <p class="text-gray-400 mb-6">
-                        PhD Candidate in CDT Biomedical Artificial Intelligence<br>
-                        University of Edinburgh, Edinburgh
-                    </p>
-                    <div class="flex gap-4">
-                        <a href="#" class="text-gray-400 hover:text-white transition-custom">
-                            <i class="fa fa-twitter"></i>
-                        </a>
-                        <a href="#" class="text-gray-400 hover:text-white transition-custom">
-                            <i class="fa fa-github"></i>
-                        </a>
-                        <a href="#" class="text-gray-400 hover:text-white transition-custom">
-                            <i class="fa fa-linkedin"></i>
-                        </a>
-                        <a href="#" class="text-gray-400 hover:text-white transition-custom">
-                            <i class="fa fa-google"></i>
-                        </a>
-                    </div>
-                </div>
-                
-                <div>
-                    <h3 class="text-lg font-semibold mb-4">Quick Links</h3>
-                    <ul class="space-y-2">
-                        <li><a href="index.html" class="text-gray-400 hover:text-white transition-custom">Home</a></li>
-                        <li><a href="about.html" class="text-gray-400 hover:text-white transition-custom">About</a></li>
-                        <li><a href="research.html" class="text-gray-400 hover:text-white transition-custom">Research</a></li>
-                        <li><a href="publications.html" class="text-gray-400 hover:text-white transition-custom">Publications</a></li>
-                        <!-- <li><a href="projects.html" class="text-gray-400 hover:text-white transition-custom">Projects</a></li> -->
-                        <li><a href="contact.html" class="text-gray-400 hover:text-white transition-custom">Contact</a></li>
-                    </ul>
-                </div>
-                
-                <div>
-                    <h3 class="text-lg font-semibold mb-4">Resources</h3>
-                    <ul class="space-y-2">
-                        <li><a href="#" class="text-gray-400 hover:text-white transition-custom">CV/Resume</a></li>
-                        <li><a href="#" class="text-gray-400 hover:text-white transition-custom">Research Papers</a></li>
-                        <li><a href="#" class="text-gray-400 hover:text-white transition-custom">Code Repositories</a></li>
-                        <li><a href="#" class="text-gray-400 hover:text-white transition-custom">Datasets</a></li>
-                        <li><a href="#" class="text-gray-400 hover:text-white transition-custom">Presentations</a></li>
-                    </ul>
-                </div>
-                
-                <div>
-                    <h3 class="text-lg font-semibold mb-4">Newsletter</h3>
-                    <p class="text-gray-400 mb-4">
-                        Subscribe to my newsletter to receive updates on my latest research and publications.
-                    </p>
-                    <form class="space-y-2">
-                        <div>
-                            <input type="email" placeholder="Your email address" class="w-full px-4 py-2 rounded-lg bg-gray-800 border border-gray-700 text-white focus:outline-none focus:border-primary">
-                        </div>
-                        <button type="submit" class="w-full bg-primary hover:bg-primary/90 text-white font-medium py-2 px-4 rounded-lg transition-custom">
-                            Subscribe
-                        </button>
-                    </form>
-                </div>
-            </div>
-            
-            <div class="border-t border-gray-800 mt-12 pt-8 text-center text-gray-500">
-                <p>&copy; 2025 Junkai Yang. All rights reserved.</p>
-                <p class="mt-2">Website built with <i class="fa fa-heart text-red-500"></i> and <a href="https://tailwindcss.com" class="hover:text-white transition-custom">Tailwind CSS</a></p>
-            </div>
-        </div>
-    </footer>
+    <div id="footer-placeholder"></div>
+
+    <script>
+        fetch('footer.html')
+            .then(response => response.text())
+            .then(data => {
+                document.getElementById('footer-placeholder').innerHTML = data;
+            });
+    </script>
 
     <script>
         // 移动端菜单切换
