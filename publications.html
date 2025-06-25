@@ -48,16 +48,16 @@
             .then(response => response.text())
             .then(data => {
                 document.getElementById('navbar-placeholder').innerHTML = data;
-                // 加载导航栏脚本
-                const script = document.createElement('script');
-                script.src = 'navbar.js';
-                script.onload = function() {
-                    // 确保脚本加载后立即初始化
-                    if (typeof initNavbar === 'function') {
-                        initNavbar();
-                    }
-                };
-                document.body.appendChild(script);
+                // // 加载导航栏脚本
+                // const script = document.createElement('script');
+                // script.src = 'navbar.js';
+                // script.onload = function() {
+                //     // 确保脚本加载后立即初始化
+                //     if (typeof initNavbar === 'function') {
+                //         initNavbar();
+                //     }
+                // };
+                // document.body.appendChild(script);
             });
     </script>
 
