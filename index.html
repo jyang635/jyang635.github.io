@@ -1,25 +1,938 @@
----
-layout: default
----
-
-<!DOCTYPE html>
-<html>
-<head>
-    <title>Welcome to My Website</title>
+<html lang="en"><head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Jun Yang | BCI Research</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://cdn.jsdelivr.net/npm/font-awesome@4.7.0/css/font-awesome.min.css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&amp;display=swap" rel="stylesheet">
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        primary: '#1565c0',
+                        secondary: '#00acc1',
+                        accent: '#7c4dff',
+                        dark: '#1e293b',
+                        light: '#f8fafc'
+                    },
+                    fontFamily: {
+                        inter: ['Inter', 'sans-serif'],
+                    },
+                }
+            }
+        }
+    </script>
+    <style type="text/tailwindcss">
+        @layer utilities {
+            .content-auto {
+                content-visibility: auto;
+            }
+            .text-shadow {
+                text-shadow: 0 2px 4px rgba(0,0,0,0.1);
+            }
+            .transition-custom {
+                transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+            }
+        }
+    </style>
 </head>
+<body class="font-inter bg-light text-dark antialiased">
+    <!-- Header with Navigation -->
+    <header class="fixed w-full bg-white/90 backdrop-blur-sm z-50 transition-all duration-300 shadow-sm" id="header">
+        <div class="container mx-auto px-4 py-3 flex justify-between items-center">
+            <a href="#" class="text-2xl font-bold text-primary flex items-center gap-2">
+                <span>Jun Yang</span>
+            </a>
+            
+            <!-- Desktop Navigation -->
+            <nav class="hidden md:flex items-center space-x-8">
+                <a href="#about" class="font-medium hover:text-primary transition-custom">About</a>
+                <a href="#research" class="font-medium hover:text-primary transition-custom">Research</a>
+                <a href="#publications" class="font-medium hover:text-primary transition-custom">Publications</a>
+                <a href="#projects" class="font-medium hover:text-primary transition-custom">Projects</a>
+                <a href="#contact" class="font-medium hover:text-primary transition-custom">Contact</a>
+                <a href="#" class="bg-primary hover:bg-primary/90 text-white px-5 py-2 rounded-lg transition-custom shadow-md hover:shadow-lg">
+                    <i class="fa fa-download mr-2"></i>CV
+                </a>
+            </nav>
+            
+            <!-- Mobile menu button -->
+            <button class="md:hidden text-dark text-2xl" id="menuBtn">
+                <i class="fa fa-bars"></i>
+            </button>
+        </div>
+        
+        <!-- Mobile Navigation -->
+        <div class="md:hidden bg-white absolute w-full left-0 top-full shadow-lg transform -translate-y-full opacity-0 transition-all duration-300 pointer-events-none" id="mobileMenu">
+            <div class="container mx-auto px-4 py-3 flex flex-col space-y-4">
+                <a href="#about" class="font-medium hover:text-primary py-2 transition-custom">About</a>
+                <a href="#research" class="font-medium hover:text-primary py-2 transition-custom">Research</a>
+                <a href="#publications" class="font-medium hover:text-primary py-2 transition-custom">Publications</a>
+                <a href="#projects" class="font-medium hover:text-primary py-2 transition-custom">Projects</a>
+                <a href="#contact" class="font-medium hover:text-primary py-2 transition-custom">Contact</a>
+                <a href="#" class="bg-primary hover:bg-primary/90 text-white px-5 py-3 rounded-lg transition-custom shadow-md hover:shadow-lg text-center">
+                    <i class="fa fa-download mr-2"></i>CV
+                </a>
+            </div>
+        </div>
+    </header>
 
-<body>
-    <h1>Hello, I'm a Data Scientist!</h1>
-    <p>Welcome to my personal website. I work on data science, AI, and more.</p>
-    <nav class="top-nav">
-        <ul>
-            <li><a href="index.html">Home</a></li>
-            <li><a href="about.html">About Me</a></li>
-            <li><a href="portfolio.html">Portfolio</a></li>
-            <li><a href="blog.html">Blog</a></li>
-            <li><a href="contact.html">Contact</a></li>
-        </ul>
-    </nav>
-</body>
+    <main>
+        <!-- Hero Section -->
+        <section class="pt-32 pb-20 md:pt-40 md:pb-32 bg-gradient-to-br from-blue-50 to-cyan-50">
+            <div class="container mx-auto px-4">
+                <div class="flex flex-col md:flex-row items-center gap-12">
+                    <div class="md:w-1/2 space-y-6">
+                        <h1 class="text-[clamp(2.5rem,5vw,4rem)] font-bold leading-tight text-dark">
+                            Exploring the <span class="text-primary">Brain-Computer Interface</span> Frontier
+                        </h1>
+                        <p class="text-lg md:text-xl text-gray-600 max-w-xl">PhD Student at University of Technology, Sydney. Developing non-invasive BCI technologies for rehabilitation and assistive devices.</p>
+                        <div class="flex flex-wrap gap-4 pt-4">
+                            <a href="#research" class="bg-primary hover:bg-primary/90 text-white px-6 py-3 rounded-lg transition-custom shadow-md hover:shadow-lg font-medium flex items-center gap-2">
+                                <i class="fa fa-flask"></i>
+                                <span>My Research</span>
+                            </a>
+                            <a href="#contact" class="bg-white border border-gray-300 hover:border-primary hover:text-primary px-6 py-3 rounded-lg transition-custom shadow-sm hover:shadow-md font-medium flex items-center gap-2">
+                                <i class="fa fa-envelope"></i>
+                                <span>Get in Touch</span>
+                            </a>
+                        </div>
+                        <div class="flex gap-6 pt-6">
+                            <a href="#" class="text-gray-500 hover:text-primary text-2xl transition-custom">
+                                <i class="fa fa-github"></i>
+                            </a>
+                            <a href="#" class="text-gray-500 hover:text-primary text-2xl transition-custom">
+                                <i class="fa fa-twitter"></i>
+                            </a>
+                            <a href="#" class="text-gray-500 hover:text-primary text-2xl transition-custom">
+                                <i class="fa fa-linkedin"></i>
+                            </a>
+                            <a href="#" class="text-gray-500 hover:text-primary text-2xl transition-custom">
+                                <i class="fa fa-google"></i>
+                            </a>
+                        </div>
+                    </div>
+                    <div class="md:w-1/2 relative">
+                        <div class="relative z-10 rounded-2xl overflow-hidden shadow-2xl transform hover:scale-[1.02] transition-custom">
+                            <img src="https://picsum.photos/seed/bci-research/600/700" alt="Jun Yang working on BCI research" class="w-full h-auto">
+                        </div>
+                        <div class="absolute -bottom-6 -right-6 w-48 h-48 bg-secondary/20 rounded-full -z-10 blur-2xl"></div>
+                        <div class="absolute -top-6 -left-6 w-48 h-48 bg-primary/20 rounded-full -z-10 blur-2xl"></div>
+                    </div>
+                </div>
+            </div>
+        </section>
 
-</html>
+        <!-- About Section -->
+        <section id="about" class="py-20 bg-white">
+            <div class="container mx-auto px-4">
+                <div class="max-w-3xl mx-auto text-center mb-16">
+                    <h2 class="text-[clamp(1.8rem,4vw,2.5rem)] font-bold mb-4">About Me</h2>
+                    <div class="w-20 h-1 bg-primary mx-auto mb-8"></div>
+                </div>
+                
+                <div class="grid md:grid-cols-2 gap-12 items-center">
+                    <div class="space-y-6">
+                        <p class="text-lg text-gray-700 leading-relaxed">
+                            I'm Jun Yang, a passionate PhD candidate at the University of Technology, Sydney, where I'm exploring the fascinating world of Brain-Computer Interfaces (BCIs) under the supervision of Prof. Sarah Johnson.
+                        </p>
+                        <p class="text-lg text-gray-700 leading-relaxed">
+                            My research focuses on developing non-invasive BCI technologies that can help people with motor disabilities regain independence through assistive devices. I'm particularly interested in signal processing techniques and machine learning algorithms for decoding neural signals.
+                        </p>
+                        <p class="text-lg text-gray-700 leading-relaxed">
+                            Before starting my PhD, I completed my Master's in Electrical Engineering at Tsinghua University, where I first became interested in neural engineering. In my free time, I enjoy mentoring students and sharing my passion for BCI research through public talks and workshops.
+                        </p>
+                        <div class="pt-4">
+                            <h3 class="font-semibold text-xl mb-4">Research Interests</h3>
+                            <div class="grid grid-cols-2 gap-3">
+                                <div class="bg-gray-50 p-3 rounded-lg flex items-center gap-3">
+                                    <i class="fa fa-brain text-primary text-xl"></i>
+                                    <span>EEG Signal Processing</span>
+                                </div>
+                                <div class="bg-gray-50 p-3 rounded-lg flex items-center gap-3">
+                                    <i class="fa fa-microchip text-primary text-xl"></i>
+                                    <span>Machine Learning</span>
+                                </div>
+                                <div class="bg-gray-50 p-3 rounded-lg flex items-center gap-3">
+                                    <i class="fa fa-heartbeat text-primary text-xl"></i>
+                                    <span>Neurorehabilitation</span>
+                                </div>
+                                <div class="bg-gray-50 p-3 rounded-lg flex items-center gap-3">
+                                    <i class="fa fa-wrench text-primary text-xl"></i>
+                                    <span>Assistive Technology</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="relative">
+                        <div class="bg-gradient-to-br from-primary/10 to-secondary/10 p-8 rounded-2xl">
+                            <div class="bg-white rounded-xl overflow-hidden shadow-lg">
+                                <div class="p-6">
+                                    <h3 class="font-bold text-xl mb-4">Current Position</h3>
+                                    <div class="flex items-start gap-4 mb-6">
+                                        <div class="bg-primary/10 p-3 rounded-lg">
+                                            <i class="fa fa-university text-primary text-2xl"></i>
+                                        </div>
+                                        <div>
+                                            <h4 class="font-semibold text-lg">PhD Candidate in Neural Engineering</h4>
+                                            <p class="text-gray-600">University of Technology, Sydney</p>
+                                            <p class="text-sm text-gray-500">2022 - Present</p>
+                                        </div>
+                                    </div>
+                                    
+                                    <h3 class="font-bold text-xl mb-4">Education</h3>
+                                    <div class="flex items-start gap-4 mb-6">
+                                        <div class="bg-primary/10 p-3 rounded-lg">
+                                            <i class="fa fa-graduation-cap text-primary text-2xl"></i>
+                                        </div>
+                                        <div>
+                                            <h4 class="font-semibold text-lg">M.Eng. in Electrical Engineering</h4>
+                                            <p class="text-gray-600">Tsinghua University</p>
+                                            <p class="text-sm text-gray-500">2019 - 2021</p>
+                                        </div>
+                                    </div>
+                                    <div class="flex items-start gap-4">
+                                        <div class="bg-primary/10 p-3 rounded-lg">
+                                            <i class="fa fa-graduation-cap text-primary text-2xl"></i>
+                                        </div>
+                                        <div>
+                                            <h4 class="font-semibold text-lg">B.S. in Biomedical Engineering</h4>
+                                            <p class="text-gray-600">Peking University</p>
+                                            <p class="text-sm text-gray-500">2015 - 2019</p>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="absolute -bottom-4 -left-4 w-32 h-32 bg-accent/10 rounded-full -z-10 blur-xl"></div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Research Section -->
+        <section id="research" class="py-20 bg-gray-50">
+            <div class="container mx-auto px-4">
+                <div class="max-w-3xl mx-auto text-center mb-16">
+                    <h2 class="text-[clamp(1.8rem,4vw,2.5rem)] font-bold mb-4">Research Overview</h2>
+                    <div class="w-20 h-1 bg-primary mx-auto mb-8"></div>
+                    <p class="text-lg text-gray-600">
+                        My research focuses on developing non-invasive Brain-Computer Interface (BCI) technologies to help individuals with motor disabilities. I'm particularly interested in improving signal processing techniques and developing more intuitive BCI systems.
+                    </p>
+                </div>
+                
+                <div class="grid md:grid-cols-3 gap-8">
+                    <div class="bg-white rounded-xl shadow-md hover:shadow-xl transition-custom p-6 transform hover:-translate-y-1">
+                        <div class="w-14 h-14 bg-primary/10 rounded-lg flex items-center justify-center mb-6">
+                            <i class="fa fa-wave-square text-primary text-2xl"></i>
+                        </div>
+                        <h3 class="font-bold text-xl mb-3">EEG Signal Processing</h3>
+                        <p class="text-gray-600 mb-4">
+                            Developing advanced algorithms to improve the quality of EEG signals and extract meaningful information for BCI applications.
+                        </p>
+                        <ul class="space-y-2 mb-6">
+                            <li class="flex items-center gap-2 text-gray-600">
+                                <i class="fa fa-check text-green-500"></i>
+                                <span>Noise reduction techniques</span>
+                            </li>
+                            <li class="flex items-center gap-2 text-gray-600">
+                                <i class="fa fa-check text-green-500"></i>
+                                <span>Feature extraction and selection</span>
+                            </li>
+                            <li class="flex items-center gap-2 text-gray-600">
+                                <i class="fa fa-check text-green-500"></i>
+                                <span>Signal classification algorithms</span>
+                            </li>
+                        </ul>
+                        <a href="#" class="text-primary font-medium hover:text-primary/80 flex items-center gap-2 transition-custom">
+                            <span>Learn more</span>
+                            <i class="fa fa-arrow-right"></i>
+                        </a>
+                    </div>
+                    
+                    <div class="bg-white rounded-xl shadow-md hover:shadow-xl transition-custom p-6 transform hover:-translate-y-1">
+                        <div class="w-14 h-14 bg-secondary/10 rounded-lg flex items-center justify-center mb-6">
+                            <i class="fa fa-microchip text-secondary text-2xl"></i>
+                        </div>
+                        <h3 class="font-bold text-xl mb-3">Machine Learning for BCIs</h3>
+                        <p class="text-gray-600 mb-4">
+                            Applying machine learning techniques to decode neural signals and improve the accuracy and reliability of BCI systems.
+                        </p>
+                        <ul class="space-y-2 mb-6">
+                            <li class="flex items-center gap-2 text-gray-600">
+                                <i class="fa fa-check text-green-500"></i>
+                                <span>Deep learning models for EEG analysis</span>
+                            </li>
+                            <li class="flex items-center gap-2 text-gray-600">
+                                <i class="fa fa-check text-green-500"></i>
+                                <span>Transfer learning for BCI adaptation</span>
+                            </li>
+                            <li class="flex items-center gap-2 text-gray-600">
+                                <i class="fa fa-check text-green-500"></i>
+                                <span>Real-time classification systems</span>
+                            </li>
+                        </ul>
+                        <a href="#" class="text-secondary font-medium hover:text-secondary/80 flex items-center gap-2 transition-custom">
+                            <span>Learn more</span>
+                            <i class="fa fa-arrow-right"></i>
+                        </a>
+                    </div>
+                    
+                    <div class="bg-white rounded-xl shadow-md hover:shadow-xl transition-custom p-6 transform hover:-translate-y-1">
+                        <div class="w-14 h-14 bg-accent/10 rounded-lg flex items-center justify-center mb-6">
+                            <i class="fa fa-heartbeat text-accent text-2xl"></i>
+                        </div>
+                        <h3 class="font-bold text-xl mb-3">Neurorehabilitation</h3>
+                        <p class="text-gray-600 mb-4">
+                            Exploring how BCI technologies can be used for neurorehabilitation and improving the quality of life for individuals with disabilities.
+                        </p>
+                        <ul class="space-y-2 mb-6">
+                            <li class="flex items-center gap-2 text-gray-600">
+                                <i class="fa fa-check text-green-500"></i>
+                                <span>Motor imagery-based rehabilitation</span>
+                            </li>
+                            <li class="flex items-center gap-2 text-gray-600">
+                                <i class="fa fa-check text-green-500"></i>
+                                <span>BCI-driven robotic exoskeletons</span>
+                            </li>
+                            <li class="flex items-center gap-2 text-gray-600">
+                                <i class="fa fa-check text-green-500"></i>
+                                <span>Cognitive training applications</span>
+                            </li>
+                        </ul>
+                        <a href="#" class="text-accent font-medium hover:text-accent/80 flex items-center gap-2 transition-custom">
+                            <span>Learn more</span>
+                            <i class="fa fa-arrow-right"></i>
+                        </a>
+                    </div>
+                </div>
+                
+                <div class="mt-16 bg-white rounded-xl shadow-lg overflow-hidden">
+                    <div class="p-8">
+                        <h3 class="font-bold text-2xl mb-6">Research Timeline</h3>
+                        <div class="relative">
+                            <!-- Timeline line -->
+                            <div class="absolute left-4 md:left-1/2 top-0 bottom-0 w-0.5 bg-gray-200 transform md:-translate-x-1/2"></div>
+                            
+                            <!-- Timeline items -->
+                            <div class="relative z-10 mb-12">
+                                <div class="flex flex-col md:flex-row items-center">
+                                    <div class="md:w-1/2 md:pr-12 md:text-right mb-6 md:mb-0">
+                                        <span class="inline-block bg-primary/10 text-primary text-sm font-medium px-3 py-1 rounded-full mb-2">2023 - Present</span>
+                                        <h4 class="font-bold text-xl mb-2">Development of an Adaptive BCI System for Stroke Rehabilitation</h4>
+                                        <p class="text-gray-600">
+                                            Developing a novel BCI system that adapts to the user's changing neural patterns over time, improving long-term performance for stroke rehabilitation.
+                                        </p>
+                                    </div>
+                                    <div class="absolute left-4 md:left-1/2 w-8 h-8 rounded-full bg-primary border-4 border-white shadow-md transform md:-translate-x-1/2"></div>
+                                    <div class="md:w-1/2 md:pl-12"></div>
+                                </div>
+                            </div>
+                            
+                            <div class="relative z-10 mb-12">
+                                <div class="flex flex-col md:flex-row items-center">
+                                    <div class="md:w-1/2 md:pr-12 md:text-right mb-6 md:mb-0"></div>
+                                    <div class="absolute left-4 md:left-1/2 w-8 h-8 rounded-full bg-secondary border-4 border-white shadow-md transform md:-translate-x-1/2"></div>
+                                    <div class="md:w-1/2 md:pl-12">
+                                        <span class="inline-block bg-secondary/10 text-secondary text-sm font-medium px-3 py-1 rounded-full mb-2">2022 - 2023</span>
+                                        <h4 class="font-bold text-xl mb-2">EEG Signal Enhancement Using Deep Learning</h4>
+                                        <p class="text-gray-600">
+                                            Research project focused on using deep learning techniques to enhance the quality of EEG signals and improve BCI performance in noisy environments.
+                                        </p>
+                                    </div>
+                                </div>
+                            </div>
+                            
+                            <div class="relative z-10 mb-12">
+                                <div class="flex flex-col md:flex-row items-center">
+                                    <div class="md:w-1/2 md:pr-12 md:text-right mb-6 md:mb-0">
+                                        <span class="inline-block bg-accent/10 text-accent text-sm font-medium px-3 py-1 rounded-full mb-2">2021 - 2022</span>
+                                        <h4 class="font-bold text-xl mb-2">Non-Invasive BCI for Assistive Robotics</h4>
+                                        <p class="text-gray-600">
+                                            Master's thesis project exploring how non-invasive BCIs can be used to control robotic arms for individuals with upper limb disabilities.
+                                        </p>
+                                    </div>
+                                    <div class="absolute left-4 md:left-1/2 w-8 h-8 rounded-full bg-accent border-4 border-white shadow-md transform md:-translate-x-1/2"></div>
+                                    <div class="md:w-1/2 md:pl-12"></div>
+                                </div>
+                            </div>
+                            
+                            <div class="relative z-10">
+                                <div class="flex flex-col md:flex-row items-center">
+                                    <div class="md:w-1/2 md:pr-12 md:text-right mb-6 md:mb-0"></div>
+                                    <div class="absolute left-4 md:left-1/2 w-8 h-8 rounded-full bg-primary border-4 border-white shadow-md transform md:-translate-x-1/2"></div>
+                                    <div class="md:w-1/2 md:pl-12">
+                                        <span class="inline-block bg-primary/10 text-primary text-sm font-medium px-3 py-1 rounded-full mb-2">2019 - 2021</span>
+                                        <h4 class="font-bold text-xl mb-2">Brain-Computer Interface for Motor Imagery Detection</h4>
+                                        <p class="text-gray-600">
+                                            Undergraduate research project developing a BCI system for detecting motor imagery from EEG signals for potential use in prosthetic control.
+                                        </p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Publications Section -->
+        <section id="publications" class="py-20 bg-white">
+            <div class="container mx-auto px-4">
+                <div class="max-w-3xl mx-auto text-center mb-16">
+                    <h2 class="text-[clamp(1.8rem,4vw,2.5rem)] font-bold mb-4">Publications</h2>
+                    <div class="w-20 h-1 bg-primary mx-auto mb-8"></div>
+                    <p class="text-lg text-gray-600">
+                        A selection of my published research papers and conference presentations in the field of Brain-Computer Interfaces and neural engineering.
+                    </p>
+                </div>
+                
+                <div class="space-y-8">
+                    <div class="bg-white rounded-xl shadow-md hover:shadow-lg transition-custom p-6 border-l-4 border-primary">
+                        <span class="text-sm font-medium text-primary bg-primary/10 px-3 py-1 rounded-full">Journal Article</span>
+                        <h3 class="font-bold text-xl mt-4 mb-2">Yang, J., &amp; Johnson, S. (2023). "Adaptive Deep Learning Framework for EEG Signal Enhancement in Brain-Computer Interfaces." <i>IEEE Transactions on Neural Systems and Rehabilitation Engineering</i>.</h3>
+                        <p class="text-gray-600 mb-4">
+                            This paper presents a novel adaptive deep learning framework for enhancing EEG signals in noisy environments, improving the performance of non-invasive BCIs.
+                        </p>
+                        <div class="flex flex-wrap gap-3 mb-4">
+                            <span class="text-xs font-medium text-gray-700 bg-gray-100 px-3 py-1 rounded-full">EEG Signal Processing</span>
+                            <span class="text-xs font-medium text-gray-700 bg-gray-100 px-3 py-1 rounded-full">Deep Learning</span>
+                            <span class="text-xs font-medium text-gray-700 bg-gray-100 px-3 py-1 rounded-full">BCI</span>
+                        </div>
+                        <div class="flex flex-wrap gap-4">
+                            <a href="#" class="text-primary font-medium hover:text-primary/80 flex items-center gap-2 transition-custom">
+                                <i class="fa fa-file-pdf"></i>
+                                <span>PDF</span>
+                            </a>
+                            <a href="#" class="text-gray-600 font-medium hover:text-gray-800 flex items-center gap-2 transition-custom">
+                                <i class="fa fa-database"></i>
+                                <span>Dataset</span>
+                            </a>
+                            <a href="#" class="text-gray-600 font-medium hover:text-gray-800 flex items-center gap-2 transition-custom">
+                                <i class="fa fa-code"></i>
+                                <span>Code</span>
+                            </a>
+                        </div>
+                    </div>
+                    
+                    <div class="bg-white rounded-xl shadow-md hover:shadow-lg transition-custom p-6 border-l-4 border-secondary">
+                        <span class="text-sm font-medium text-secondary bg-secondary/10 px-3 py-1 rounded-full">Conference Paper</span>
+                        <h3 class="font-bold text-xl mt-4 mb-2">Yang, J., Smith, R., &amp; Chen, L. (2022). "A Comparison of Machine Learning Algorithms for Motor Imagery Classification in BCIs." <i>Proceedings of the 10th International Conference on Neural Engineering (NER)</i>.</h3>
+                        <p class="text-gray-600 mb-4">
+                            This study compares different machine learning algorithms for classifying motor imagery EEG signals, providing insights into which algorithms work best for different BCI applications.
+                        </p>
+                        <div class="flex flex-wrap gap-3 mb-4">
+                            <span class="text-xs font-medium text-gray-700 bg-gray-100 px-3 py-1 rounded-full">Motor Imagery</span>
+                            <span class="text-xs font-medium text-gray-700 bg-gray-100 px-3 py-1 rounded-full">Machine Learning</span>
+                            <span class="text-xs font-medium text-gray-700 bg-gray-100 px-3 py-1 rounded-full">Classification</span>
+                        </div>
+                        <div class="flex flex-wrap gap-4">
+                            <a href="#" class="text-secondary font-medium hover:text-secondary/80 flex items-center gap-2 transition-custom">
+                                <i class="fa fa-file-pdf"></i>
+                                <span>PDF</span>
+                            </a>
+                            <a href="#" class="text-gray-600 font-medium hover:text-gray-800 flex items-center gap-2 transition-custom">
+                                <i class="fa fa-slideshare"></i>
+                                <span>Slides</span>
+                            </a>
+                        </div>
+                    </div>
+                    
+                    <div class="bg-white rounded-xl shadow-md hover:shadow-lg transition-custom p-6 border-l-4 border-accent">
+                        <span class="text-sm font-medium text-accent bg-accent/10 px-3 py-1 rounded-full">Journal Article</span>
+                        <h3 class="font-bold text-xl mt-4 mb-2">Yang, J., &amp; Li, W. (2021). "A Hybrid BCI System for Improved Accuracy in Motor Imagery Detection." <i>Journal of Neural Engineering</i>.</h3>
+                        <p class="text-gray-600 mb-4">
+                            This paper introduces a hybrid BCI system that combines EEG and EMG signals to improve the accuracy of motor imagery detection for prosthetic control.
+                        </p>
+                        <div class="flex flex-wrap gap-3 mb-4">
+                            <span class="text-xs font-medium text-gray-700 bg-gray-100 px-3 py-1 rounded-full">Hybrid BCI</span>
+                            <span class="text-xs font-medium text-gray-700 bg-gray-100 px-3 py-1 rounded-full">EEG/EMG</span>
+                            <span class="text-xs font-medium text-gray-700 bg-gray-100 px-3 py-1 rounded-full">Prosthetics</span>
+                        </div>
+                        <div class="flex flex-wrap gap-4">
+                            <a href="#" class="text-accent font-medium hover:text-accent/80 flex items-center gap-2 transition-custom">
+                                <i class="fa fa-file-pdf"></i>
+                                <span>PDF</span>
+                            </a>
+                            <a href="#" class="text-gray-600 font-medium hover:text-gray-800 flex items-center gap-2 transition-custom">
+                                <i class="fa fa-video-camera"></i>
+                                <span>Video</span>
+                            </a>
+                        </div>
+                    </div>
+                    
+                    <div class="bg-white rounded-xl shadow-md hover:shadow-lg transition-custom p-6 border-l-4 border-primary">
+                        <span class="text-sm font-medium text-primary bg-primary/10 px-3 py-1 rounded-full">Conference Paper</span>
+                        <h3 class="font-bold text-xl mt-4 mb-2">Yang, J., Zhang, T., &amp; Wang, K. (2020). "Real-Time EEG Signal Processing for Brain-Computer Interfaces." <i>Proceedings of the 8th International Conference on Biomedical Engineering and Sciences (IECBES)</i>.</h3>
+                        <p class="text-gray-600 mb-4">
+                            This conference paper presents a real-time EEG signal processing pipeline designed for BCI applications, focusing on low-latency and high-accuracy signal classification.
+                        </p>
+                        <div class="flex flex-wrap gap-3 mb-4">
+                            <span class="text-xs font-medium text-gray-700 bg-gray-100 px-3 py-1 rounded-full">Real-Time Processing</span>
+                            <span class="text-xs font-medium text-gray-700 bg-gray-100 px-3 py-1 rounded-full">EEG</span>
+                            <span class="text-xs font-medium text-gray-700 bg-gray-100 px-3 py-1 rounded-full">Signal Pipeline</span>
+                        </div>
+                        <div class="flex flex-wrap gap-4">
+                            <a href="#" class="text-primary font-medium hover:text-primary/80 flex items-center gap-2 transition-custom">
+                                <i class="fa fa-file-pdf"></i>
+                                <span>PDF</span>
+                            </a>
+                            <a href="#" class="text-gray-600 font-medium hover:text-gray-800 flex items-center gap-2 transition-custom">
+                                <i class="fa fa-github"></i>
+                                <span>Code</span>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="mt-12 text-center">
+                    <a href="#" class="inline-flex items-center gap-2 bg-gray-100 hover:bg-gray-200 text-gray-800 px-6 py-3 rounded-lg transition-custom font-medium">
+                        <span>View All Publications</span>
+                        <i class="fa fa-arrow-right"></i>
+                    </a>
+                </div>
+            </div>
+        </section>
+
+        <!-- Projects Section -->
+        <section id="projects" class="py-20 bg-gray-50">
+            <div class="container mx-auto px-4">
+                <div class="max-w-3xl mx-auto text-center mb-16">
+                    <h2 class="text-[clamp(1.8rem,4vw,2.5rem)] font-bold mb-4">Research Projects</h2>
+                    <div class="w-20 h-1 bg-primary mx-auto mb-8"></div>
+                    <p class="text-lg text-gray-600">
+                        A selection of my current and past research projects in the field of Brain-Computer Interfaces and neural engineering.
+                    </p>
+                </div>
+                
+                <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+                    <div class="bg-white rounded-xl shadow-md hover:shadow-xl transition-custom overflow-hidden group">
+                        <div class="relative overflow-hidden">
+                            <img src="https://picsum.photos/seed/bci-project1/600/400" alt="Adaptive BCI System for Stroke Rehabilitation" class="w-full h-64 object-cover transform group-hover:scale-105 transition-custom duration-500">
+                            <div class="absolute inset-0 bg-gradient-to-t from-black/70 to-transparent flex items-end">
+                                <div class="p-6">
+                                    <span class="text-white text-sm font-medium bg-primary/80 px-3 py-1 rounded-full">Current Project</span>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="p-6">
+                            <h3 class="font-bold text-xl mb-3">Adaptive BCI System for Stroke Rehabilitation</h3>
+                            <p class="text-gray-600 mb-4">
+                                Developing an adaptive BCI system that adjusts to changes in the user's brain activity over time, improving long-term effectiveness for stroke rehabilitation.
+                            </p>
+                            <div class="flex flex-wrap gap-3 mb-6">
+                                <span class="text-xs font-medium text-gray-700 bg-gray-100 px-3 py-1 rounded-full">EEG</span>
+                                <span class="text-xs font-medium text-gray-700 bg-gray-100 px-3 py-1 rounded-full">Machine Learning</span>
+                                <span class="text-xs font-medium text-gray-700 bg-gray-100 px-3 py-1 rounded-full">Rehabilitation</span>
+                            </div>
+                            <a href="#" class="text-primary font-medium hover:text-primary/80 flex items-center gap-2 transition-custom">
+                                <span>View Project</span>
+                                <i class="fa fa-arrow-right"></i>
+                            </a>
+                        </div>
+                    </div>
+                    
+                    <div class="bg-white rounded-xl shadow-md hover:shadow-xl transition-custom overflow-hidden group">
+                        <div class="relative overflow-hidden">
+                            <img src="https://picsum.photos/seed/bci-project2/600/400" alt="EEG Signal Enhancement Using Deep Learning" class="w-full h-64 object-cover transform group-hover:scale-105 transition-custom duration-500">
+                            <div class="absolute inset-0 bg-gradient-to-t from-black/70 to-transparent flex items-end">
+                                <div class="p-6">
+                                    <span class="text-white text-sm font-medium bg-secondary/80 px-3 py-1 rounded-full">Completed</span>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="p-6">
+                            <h3 class="font-bold text-xl mb-3">EEG Signal Enhancement Using Deep Learning</h3>
+                            <p class="text-gray-600 mb-4">
+                                A deep learning-based approach to enhance EEG signals in noisy environments, improving the accuracy of BCI systems for individuals with motor disabilities.
+                            </p>
+                            <div class="flex flex-wrap gap-3 mb-6">
+                                <span class="text-xs font-medium text-gray-700 bg-gray-100 px-3 py-1 rounded-full">Deep Learning</span>
+                                <span class="text-xs font-medium text-gray-700 bg-gray-100 px-3 py-1 rounded-full">Signal Processing</span>
+                                <span class="text-xs font-medium text-gray-700 bg-gray-100 px-3 py-1 rounded-full">EEG</span>
+                            </div>
+                            <a href="#" class="text-secondary font-medium hover:text-secondary/80 flex items-center gap-2 transition-custom">
+                                <span>View Project</span>
+                                <i class="fa fa-arrow-right"></i>
+                            </a>
+                        </div>
+                    </div>
+                    
+                    <div class="bg-white rounded-xl shadow-md hover:shadow-xl transition-custom overflow-hidden group">
+                        <div class="relative overflow-hidden">
+                            <img src="https://picsum.photos/seed/bci-project3/600/400" alt="Non-Invasive BCI for Robotic Arm Control" class="w-full h-64 object-cover transform group-hover:scale-105 transition-custom duration-500">
+                            <div class="absolute inset-0 bg-gradient-to-t from-black/70 to-transparent flex items-end">
+                                <div class="p-6">
+                                    <span class="text-white text-sm font-medium bg-accent/80 px-3 py-1 rounded-full">Completed</span>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="p-6">
+                            <h3 class="font-bold text-xl mb-3">Non-Invasive BCI for Robotic Arm Control</h3>
+                            <p class="text-gray-600 mb-4">
+                                Developing a non-invasive BCI system that enables individuals with upper limb disabilities to control a robotic arm using their brain signals.
+                            </p>
+                            <div class="flex flex-wrap gap-3 mb-6">
+                                <span class="text-xs font-medium text-gray-700 bg-gray-100 px-3 py-1 rounded-full">Robotics</span>
+                                <span class="text-xs font-medium text-gray-700 bg-gray-100 px-3 py-1 rounded-full">Motor Imagery</span>
+                                <span class="text-xs font-medium text-gray-700 bg-gray-100 px-3 py-1 rounded-full">Prosthetics</span>
+                            </div>
+                            <a href="#" class="text-accent font-medium hover:text-accent/80 flex items-center gap-2 transition-custom">
+                                <span>View Project</span>
+                                <i class="fa fa-arrow-right"></i>
+                            </a>
+                        </div>
+                    </div>
+                    
+                    <div class="bg-white rounded-xl shadow-md hover:shadow-xl transition-custom overflow-hidden group">
+                        <div class="relative overflow-hidden">
+                            <img src="https://picsum.photos/seed/bci-project4/600/400" alt="BCI-Based Gaming Interface" class="w-full h-64 object-cover transform group-hover:scale-105 transition-custom duration-500">
+                            <div class="absolute inset-0 bg-gradient-to-t from-black/70 to-transparent flex items-end">
+                                <div class="p-6">
+                                    <span class="text-white text-sm font-medium bg-primary/80 px-3 py-1 rounded-full">Completed</span>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="p-6">
+                            <h3 class="font-bold text-xl mb-3">BCI-Based Gaming Interface</h3>
+                            <p class="text-gray-600 mb-4">
+                                Developing a BCI-based gaming interface that allows users to control game actions using their brain signals, providing a novel gaming experience.
+                            </p>
+                            <div class="flex flex-wrap gap-3 mb-6">
+                                <span class="text-xs font-medium text-gray-700 bg-gray-100 px-3 py-1 rounded-full">Gaming</span>
+                                <span class="text-xs font-medium text-gray-700 bg-gray-100 px-3 py-1 rounded-full">P300</span>
+                                <span class="text-xs font-medium text-gray-700 bg-gray-100 px-3 py-1 rounded-full">User Interface</span>
+                            </div>
+                            <a href="#" class="text-primary font-medium hover:text-primary/80 flex items-center gap-2 transition-custom">
+                                <span>View Project</span>
+                                <i class="fa fa-arrow-right"></i>
+                            </a>
+                        </div>
+                    </div>
+                    
+                    <div class="bg-white rounded-xl shadow-md hover:shadow-xl transition-custom overflow-hidden group">
+                        <div class="relative overflow-hidden">
+                            <img src="https://picsum.photos/seed/bci-project5/600/400" alt="Hybrid BCI System for Improved Accuracy" class="w-full h-64 object-cover transform group-hover:scale-105 transition-custom duration-500">
+                            <div class="absolute inset-0 bg-gradient-to-t from-black/70 to-transparent flex items-end">
+                                <div class="p-6">
+                                    <span class="text-white text-sm font-medium bg-secondary/80 px-3 py-1 rounded-full">Completed</span>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="p-6">
+                            <h3 class="font-bold text-xl mb-3">Hybrid BCI System for Improved Accuracy</h3>
+                            <p class="text-gray-600 mb-4">
+                                A hybrid BCI system that combines EEG and EMG signals to improve the accuracy of motor imagery detection for prosthetic control applications.
+                            </p>
+                            <div class="flex flex-wrap gap-3 mb-6">
+                                <span class="text-xs font-medium text-gray-700 bg-gray-100 px-3 py-1 rounded-full">Hybrid BCI</span>
+                                <span class="text-xs font-medium text-gray-700 bg-gray-100 px-3 py-1 rounded-full">EEG/EMG</span>
+                                <span class="text-xs font-medium text-gray-700 bg-gray-100 px-3 py-1 rounded-full">Classification</span>
+                            </div>
+                            <a href="#" class="text-secondary font-medium hover:text-secondary/80 flex items-center gap-2 transition-custom">
+                                <span>View Project</span>
+                                <i class="fa fa-arrow-right"></i>
+                            </a>
+                        </div>
+                    </div>
+                    
+                    <div class="bg-white rounded-xl shadow-md hover:shadow-xl transition-custom overflow-hidden group">
+                        <div class="relative overflow-hidden">
+                            <img src="https://picsum.photos/seed/bci-project6/600/400" alt="Brain-Computer Interface for Motor Imagery Detection" class="w-full h-64 object-cover transform group-hover:scale-105 transition-custom duration-500">
+                            <div class="absolute inset-0 bg-gradient-to-t from-black/70 to-transparent flex items-end">
+                                <div class="p-6">
+                                    <span class="text-white text-sm font-medium bg-accent/80 px-3 py-1 rounded-full">Completed</span>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="p-6">
+                            <h3 class="font-bold text-xl mb-3">Brain-Computer Interface for Motor Imagery Detection</h3>
+                            <p class="text-gray-600 mb-4">
+                                Developing a BCI system for detecting motor imagery from EEG signals with the goal of improving control accuracy for prosthetic devices.
+                            </p>
+                            <div class="flex flex-wrap gap-3 mb-6">
+                                <span class="text-xs font-medium text-gray-700 bg-gray-100 px-3 py-1 rounded-full">Motor Imagery</span>
+                                <span class="text-xs font-medium text-gray-700 bg-gray-100 px-3 py-1 rounded-full">Feature Extraction</span>
+                                <span class="text-xs font-medium text-gray-700 bg-gray-100 px-3 py-1 rounded-full">EEG</span>
+                            </div>
+                            <a href="#" class="text-accent font-medium hover:text-accent/80 flex items-center gap-2 transition-custom">
+                                <span>View Project</span>
+                                <i class="fa fa-arrow-right"></i>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Contact Section -->
+        <section id="contact" class="py-20 bg-white">
+            <div class="container mx-auto px-4">
+                <div class="max-w-3xl mx-auto text-center mb-16">
+                    <h2 class="text-[clamp(1.8rem,4vw,2.5rem)] font-bold mb-4">Get in Touch</h2>
+                    <div class="w-20 h-1 bg-primary mx-auto mb-8"></div>
+                    <p class="text-lg text-gray-600">
+                        I'm always open to discussing new research opportunities, collaborations, or just general questions about BCI technology. Feel free to reach out!
+                    </p>
+                </div>
+                
+                <div class="grid md:grid-cols-2 gap-12">
+                    <div class="bg-white rounded-xl shadow-lg p-8 relative">
+                        <div class="absolute -top-4 -right-4 w-24 h-24 bg-primary/10 rounded-full -z-10 blur-xl"></div>
+                        <h3 class="font-bold text-2xl mb-6">Contact Information</h3>
+                        
+                        <div class="space-y-6">
+                            <div class="flex items-start gap-4">
+                                <div class="bg-primary/10 p-3 rounded-lg">
+                                    <i class="fa fa-envelope text-primary text-xl"></i>
+                                </div>
+                                <div>
+                                    <h4 class="font-semibold text-lg mb-1">Email</h4>
+                                    <a href="mailto:j.yang@uts.edu.au" class="text-gray-600 hover:text-primary transition-custom">j.yang@uts.edu.au</a>
+                                </div>
+                            </div>
+                            
+                            <div class="flex items-start gap-4">
+                                <div class="bg-primary/10 p-3 rounded-lg">
+                                    <i class="fa fa-phone text-primary text-xl"></i>
+                                </div>
+                                <div>
+                                    <h4 class="font-semibold text-lg mb-1">Phone</h4>
+                                    <a href="tel:+61412345678" class="text-gray-600 hover:text-primary transition-custom">+61 (4) 1234 5678</a>
+                                </div>
+                            </div>
+                            
+                            <div class="flex items-start gap-4">
+                                <div class="bg-primary/10 p-3 rounded-lg">
+                                    <i class="fa fa-map-marker text-primary text-xl"></i>
+                                </div>
+                                <div>
+                                    <h4 class="font-semibold text-lg mb-1">Office Location</h4>
+                                    <p class="text-gray-600">Centre for Neural Engineering<br>University of Technology, Sydney<br>Broadway, NSW 2007, Australia</p>
+                                </div>
+                            </div>
+                            
+                            <div class="flex items-start gap-4">
+                                <div class="bg-primary/10 p-3 rounded-lg">
+                                    <i class="fa fa-clock-o text-primary text-xl"></i>
+                                </div>
+                                <div>
+                                    <h4 class="font-semibold text-lg mb-1">Office Hours</h4>
+                                    <p class="text-gray-600">Monday - Friday: 9:00 AM - 5:00 PM<br>By appointment only</p>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="mt-10">
+                            <h4 class="font-semibold text-lg mb-4">Follow Me</h4>
+                            <div class="flex gap-4">
+                                <a href="#" class="w-10 h-10 bg-primary/10 hover:bg-primary/20 text-primary rounded-full flex items-center justify-center transition-custom">
+                                    <i class="fa fa-twitter"></i>
+                                </a>
+                                <a href="#" class="w-10 h-10 bg-primary/10 hover:bg-primary/20 text-primary rounded-full flex items-center justify-center transition-custom">
+                                    <i class="fa fa-github"></i>
+                                </a>
+                                <a href="#" class="w-10 h-10 bg-primary/10 hover:bg-primary/20 text-primary rounded-full flex items-center justify-center transition-custom">
+                                    <i class="fa fa-linkedin"></i>
+                                </a>
+                                <a href="#" class="w-10 h-10 bg-primary/10 hover:bg-primary/20 text-primary rounded-full flex items-center justify-center transition-custom">
+                                    <i class="fa fa-google"></i>
+                                </a>
+                                <a href="#" class="w-10 h-10 bg-primary/10 hover:bg-primary/20 text-primary rounded-full flex items-center justify-center transition-custom">
+                                    <i class="fa fa-researchgate"></i>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="bg-white rounded-xl shadow-lg p-8 relative">
+                        <div class="absolute -bottom-4 -left-4 w-24 h-24 bg-secondary/10 rounded-full -z-10 blur-xl"></div>
+                        <h3 class="font-bold text-2xl mb-6">Send Me a Message</h3>
+                        
+                        <form id="contactForm" class="space-y-6">
+                            <div>
+                                <label for="name" class="block text-gray-700 font-medium mb-2">Your Name</label>
+                                <input type="text" id="name" name="name" class="w-full px-4 py-3 rounded-lg border border-gray-300 focus:border-primary focus:ring focus:ring-primary/20 outline-none transition-custom" placeholder="John Doe" required="">
+                            </div>
+                            
+                            <div>
+                                <label for="email" class="block text-gray-700 font-medium mb-2">Your Email</label>
+                                <input type="email" id="email" name="email" class="w-full px-4 py-3 rounded-lg border border-gray-300 focus:border-primary focus:ring focus:ring-primary/20 outline-none transition-custom" placeholder="john@example.com" required="">
+                            </div>
+                            
+                            <div>
+                                <label for="subject" class="block text-gray-700 font-medium mb-2">Subject</label>
+                                <input type="text" id="subject" name="subject" class="w-full px-4 py-3 rounded-lg border border-gray-300 focus:border-primary focus:ring focus:ring-primary/20 outline-none transition-custom" placeholder="Research Collaboration Opportunity" required="">
+                            </div>
+                            
+                            <div>
+                                <label for="message" class="block text-gray-700 font-medium mb-2">Message</label>
+                                <textarea id="message" name="message" rows="5" class="w-full px-4 py-3 rounded-lg border border-gray-300 focus:border-primary focus:ring focus:ring-primary/20 outline-none transition-custom resize-none" placeholder="Please provide details about your inquiry..." required=""></textarea>
+                            </div>
+                            
+                            <div>
+                                <button type="submit" class="w-full bg-primary hover:bg-primary/90 text-white font-medium py-3 px-6 rounded-lg transition-custom shadow-md hover:shadow-lg flex items-center justify-center gap-2">
+                                    <i class="fa fa-paper-plane"></i>
+                                    <span>Send Message</span>
+                                </button>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- Footer -->
+    <footer class="bg-gray-900 text-white py-12">
+        <div class="container mx-auto px-4">
+            <div class="grid md:grid-cols-4 gap-8">
+                <div>
+                    <h3 class="text-xl font-bold mb-4">Jun Yang</h3>
+                    <p class="text-gray-400 mb-6">
+                        PhD Candidate in Neural Engineering<br>
+                        University of Technology, Sydney
+                    </p>
+                    <div class="flex gap-4">
+                        <a href="#" class="text-gray-400 hover:text-white transition-custom">
+                            <i class="fa fa-twitter"></i>
+                        </a>
+                        <a href="#" class="text-gray-400 hover:text-white transition-custom">
+                            <i class="fa fa-github"></i>
+                        </a>
+                        <a href="#" class="text-gray-400 hover:text-white transition-custom">
+                            <i class="fa fa-linkedin"></i>
+                        </a>
+                        <a href="#" class="text-gray-400 hover:text-white transition-custom">
+                            <i class="fa fa-google"></i>
+                        </a>
+                    </div>
+                </div>
+                
+                <div>
+                    <h3 class="text-lg font-semibold mb-4">Quick Links</h3>
+                    <ul class="space-y-2">
+                        <li><a href="#about" class="text-gray-400 hover:text-white transition-custom">About</a></li>
+                        <li><a href="#research" class="text-gray-400 hover:text-white transition-custom">Research</a></li>
+                        <li><a href="#publications" class="text-gray-400 hover:text-white transition-custom">Publications</a></li>
+                        <li><a href="#projects" class="text-gray-400 hover:text-white transition-custom">Projects</a></li>
+                        <li><a href="#contact" class="text-gray-400 hover:text-white transition-custom">Contact</a></li>
+                    </ul>
+                </div>
+                
+                <div>
+                    <h3 class="text-lg font-semibold mb-4">Resources</h3>
+                    <ul class="space-y-2">
+                        <li><a href="#" class="text-gray-400 hover:text-white transition-custom">CV/Resume</a></li>
+                        <li><a href="#" class="text-gray-400 hover:text-white transition-custom">Research Papers</a></li>
+                        <li><a href="#" class="text-gray-400 hover:text-white transition-custom">Code Repositories</a></li>
+                        <li><a href="#" class="text-gray-400 hover:text-white transition-custom">Datasets</a></li>
+                        <li><a href="#" class="text-gray-400 hover:text-white transition-custom">Presentations</a></li>
+                    </ul>
+                </div>
+                
+                <div>
+                    <h3 class="text-lg font-semibold mb-4">Newsletter</h3>
+                    <p class="text-gray-400 mb-4">
+                        Subscribe to my newsletter to receive updates on my latest research and publications.
+                    </p>
+                    <form class="space-y-2">
+                        <div>
+                            <input type="email" placeholder="Your email address" class="w-full px-4 py-2 rounded-lg bg-gray-800 border border-gray-700 text-white focus:outline-none focus:border-primary">
+                        </div>
+                        <button type="submit" class="w-full bg-primary hover:bg-primary/90 text-white font-medium py-2 px-4 rounded-lg transition-custom">
+                            Subscribe
+                        </button>
+                    </form>
+                </div>
+            </div>
+            
+            <div class="border-t border-gray-800 mt-12 pt-8 text-center text-gray-500">
+                <p>© 2025 Jun Yang. All rights reserved.</p>
+                <p class="mt-2">Website built with <i class="fa fa-heart text-red-500"></i> and <a href="https://tailwindcss.com" class="hover:text-white transition-custom">Tailwind CSS</a></p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Mobile menu toggle
+        const menuBtn = document.getElementById('menuBtn');
+        const mobileMenu = document.getElementById('mobileMenu');
+        
+        menuBtn.addEventListener('click', () => {
+            if (mobileMenu.classList.contains('opacity-0')) {
+                mobileMenu.classList.remove('opacity-0', '-translate-y-full', 'pointer-events-none');
+                mobileMenu.classList.add('opacity-100', 'translate-y-0', 'pointer-events-auto');
+                menuBtn.innerHTML = '<i class="fa fa-times"></i>';
+            } else {
+                mobileMenu.classList.add('opacity-0', '-translate-y-full', 'pointer-events-none');
+                mobileMenu.classList.remove('opacity-100', 'translate-y-0', 'pointer-events-auto');
+                menuBtn.innerHTML = '<i class="fa fa-bars"></i>';
+            }
+        });
+        
+        // Header scroll effect
+        const header = document.getElementById('header');
+        
+        window.addEventListener('scroll', () => {
+            if (window.scrollY > 50) {
+                header.classList.add('py-2', 'shadow-md');
+                header.classList.remove('py-3', 'shadow-sm');
+            } else {
+                header.classList.add('py-3', 'shadow-sm');
+                header.classList.remove('py-2', 'shadow-md');
+            }
+        });
+        
+        // Smooth scrolling for anchor links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                
+                // Close mobile menu if open
+                if (!mobileMenu.classList.contains('opacity-0')) {
+                    mobileMenu.classList.add('opacity-0', '-translate-y-full', 'pointer-events-none');
+                    mobileMenu.classList.remove('opacity-100', 'translate-y-0', 'pointer-events-auto');
+                    menuBtn.innerHTML = '<i class="fa fa-bars"></i>';
+                }
+                
+                const targetId = this.getAttribute('href');
+                const targetElement = document.querySelector(targetId);
+                
+                if (targetElement) {
+                    window.scrollTo({
+                        top: targetElement.offsetTop - 80,
+                        behavior: 'smooth'
+                    });
+                }
+            });
+        });
+        
+        // Contact form submission
+        const contactForm = document.getElementById('contactForm');
+        
+        contactForm.addEventListener('submit', (e) => {
+            e.preventDefault();
+            
+            // Simulate form submission
+            const submitButton = contactForm.querySelector('button[type="submit"]');
+            const originalText = submitButton.innerHTML;
+            
+            submitButton.disabled = true;
+            submitButton.innerHTML = '<i class="fa fa-spinner fa-spin"></i> Sending...';
+            
+            setTimeout(() => {
+                submitButton.innerHTML = '<i class="fa fa-check"></i> Message Sent!';
+                contactForm.reset();
+                
+                setTimeout(() => {
+                    submitButton.disabled = false;
+                    submitButton.innerHTML = originalText;
+                }, 3000);
+            }, 1500);
+        });
+    </script>
+
+
+    </body></html>
