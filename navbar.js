@@ -1,20 +1,22 @@
 // navbar.js
-document.addEventListener('DOMContentLoaded', () => {
+function initNavbar() {
     // 移动端菜单切换
     const menuBtn = document.getElementById('menuBtn');
     const mobileMenu = document.getElementById('mobileMenu');
     
-    menuBtn?.addEventListener('click', () => {
-        if (mobileMenu.classList.contains('opacity-0')) {
-            mobileMenu.classList.remove('opacity-0', '-translate-y-full', 'pointer-events-none');
-            mobileMenu.classList.add('opacity-100', 'translate-y-0', 'pointer-events-auto');
-            menuBtn.innerHTML = '<i class="fa fa-times"></i>';
-        } else {
-            mobileMenu.classList.add('opacity-0', '-translate-y-full', 'pointer-events-none');
-            mobileMenu.classList.remove('opacity-100', 'translate-y-0', 'pointer-events-auto');
-            menuBtn.innerHTML = '<i class="fa fa-bars"></i>';
-        }
-    });
+    if (menuBtn && mobileMenu) {
+        menuBtn.addEventListener('click', () => {
+            if (mobileMenu.classList.contains('opacity-0')) {
+                mobileMenu.classList.remove('opacity-0', '-translate-y-full', 'pointer-events-none');
+                mobileMenu.classList.add('opacity-100', 'translate-y-0', 'pointer-events-auto');
+                menuBtn.innerHTML = '<i class="fa fa-times"></i>';
+            } else {
+                mobileMenu.classList.add('opacity-0', '-translate-y-full', 'pointer-events-none');
+                mobileMenu.classList.remove('opacity-100', 'translate-y-0', 'pointer-events-auto');
+                menuBtn.innerHTML = '<i class="fa fa-bars"></i>';
+            }
+        });
+    }
     
     // 导航栏滚动效果
     const header = document.getElementById('header');
@@ -30,4 +32,11 @@ document.addEventListener('DOMContentLoaded', () => {
             }
         }
     });
-});
+}
+
+// Initialize immediately if DOM is ready, otherwise wait for DOMContentLoaded
+if (document.readyState === 'loading') {
+    document.addEventListener('DOMContentLoaded', initNavbar);
+} else {
+    initNavbar();
+}
