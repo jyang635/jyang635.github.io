@@ -63,20 +63,20 @@
         <section class="py-8 bg-white">
             <div class="container mx-auto px-4">
                 <div class="max-w-4xl mx-auto">
-                    <div class="flex flex-wrap gap-4 justify-center mb-10">
-                        <button class="px-6 py-2 bg-primary text-white rounded-full font-medium transition-custom hover:bg-primary/90">
+                    <div class="flex flex-wrap gap-4 justify-center mb-10" id="filter-buttons">
+                        <button data-filter="all" class="filter-btn px-6 py-2 bg-primary text-white rounded-full font-medium transition-custom hover:bg-primary/90 active">
                             All Publications
                         </button>
-                        <button class="px-6 py-2 bg-gray-100 text-gray-700 rounded-full font-medium transition-custom hover:bg-gray-200">
+                        <button data-filter="journal" class="filter-btn px-6 py-2 bg-gray-100 text-gray-700 rounded-full font-medium transition-custom hover:bg-gray-200">
                             Journal Papers
                         </button>
-                        <button class="px-6 py-2 bg-gray-100 text-gray-700 rounded-full font-medium transition-custom hover:bg-gray-200">
+                        <button data-filter="conference" class="filter-btn px-6 py-2 bg-gray-100 text-gray-700 rounded-full font-medium transition-custom hover:bg-gray-200">
                             Conference Proceedings
                         </button>
-                        <button class="px-6 py-2 bg-gray-100 text-gray-700 rounded-full font-medium transition-custom hover:bg-gray-200">
+                        <button data-filter="workshop" class="filter-btn px-6 py-2 bg-gray-100 text-gray-700 rounded-full font-medium transition-custom hover:bg-gray-200">
                             Workshops
                         </button>
-                        <button class="px-6 py-2 bg-gray-100 text-gray-700 rounded-full font-medium transition-custom hover:bg-gray-200">
+                        <button data-filter="thesis" class="filter-btn px-6 py-2 bg-gray-100 text-gray-700 rounded-full font-medium transition-custom hover:bg-gray-200">
                             Theses
                         </button>
                     </div>
@@ -85,7 +85,7 @@
         </section>
 
         <!-- 期刊论文 -->
-        <section class="py-16 bg-gray-50">
+        <section class="py-16 bg-gray-50 publication-section" data-category="journal">
             <div class="container mx-auto px-4">
                 <div class="max-w-4xl mx-auto">
                     <h2 class="text-2xl font-bold mb-8 flex items-center gap-3">
@@ -194,7 +194,7 @@
         </section>
 
         <!-- 会议论文 -->
-        <section class="py-16 bg-white">
+        <section class="py-16 bg-white publication-section" data-category="conference">
             <div class="container mx-auto px-4">
                 <div class="max-w-4xl mx-auto">
                     <h2 class="text-2xl font-bold mb-8 flex items-center gap-3">
@@ -373,6 +373,48 @@
                 });
             }
         }
+
+        // Publication filter functionality
+        function initPublicationFilters() {
+            const filterButtons = document.querySelectorAll('.filter-btn');
+            const publicationSections = document.querySelectorAll('.publication-section');
+
+            filterButtons.forEach(button => {
+                button.addEventListener('click', () => {
+                    const filter = button.getAttribute('data-filter');
+                    
+                    // Update button states
+                    filterButtons.forEach(btn => {
+                        btn.classList.remove('bg-primary', 'text-white', 'active');
+                        btn.classList.add('bg-gray-100', 'text-gray-700');
+                    });
+                    
+                    button.classList.remove('bg-gray-100', 'text-gray-700');
+                    button.classList.add('bg-primary', 'text-white', 'active');
+                    
+                    // Filter publications
+                    if (filter === 'all') {
+                        publicationSections.forEach(section => {
+                            section.style.display = 'block';
+                        });
+                    } else {
+                        publicationSections.forEach(section => {
+                            const category = section.getAttribute('data-category');
+                            if (category === filter) {
+                                section.style.display = 'block';
+                            } else {
+                                section.style.display = 'none';
+                            }
+                        });
+                    }
+                });
+            });
+        }
+
+        // Initialize filters after page loads
+        document.addEventListener('DOMContentLoaded', () => {
+            initPublicationFilters();
+        });
     </script>
 </body>
 </html>
