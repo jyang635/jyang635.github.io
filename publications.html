@@ -76,9 +76,9 @@
                         <button data-filter="workshop" class="filter-btn px-6 py-2 bg-gray-100 text-gray-700 rounded-full font-medium transition-custom hover:bg-gray-200">
                             Workshops
                         </button>
-                        <button data-filter="thesis" class="filter-btn px-6 py-2 bg-gray-100 text-gray-700 rounded-full font-medium transition-custom hover:bg-gray-200">
+                        <!-- <button data-filter="thesis" class="filter-btn px-6 py-2 bg-gray-100 text-gray-700 rounded-full font-medium transition-custom hover:bg-gray-200">
                             Theses
-                        </button>
+                        </button> -->
                     </div>
                 </div>
             </div>
@@ -95,8 +95,8 @@
                         <span>Journal Papers</span>
                     </h2>
                     
-                    <div class="space-y-6">
-                        <div class="bg-white rounded-xl shadow-md hover:shadow-lg transition-custom p-6 border-l-4 border-primary">
+                        <div class="space-y-6" id="journal-publications">
+                        <div class="bg-white rounded-xl shadow-md hover:shadow-lg transition-custom p-6 border-l-4 border-primary publication-item" data-category="journal">
                             <span class="text-sm font-medium text-primary bg-primary/10 px-3 py-1 rounded-full">2023</span>
                             <h3 class="font-bold text-xl mt-4 mb-2">Yang, J., & Johnson, S. (2023). "Adaptive Deep Learning Framework for EEG Signal Enhancement in Brain-Computer Interfaces." <i>IEEE Transactions on Neural Systems and Rehabilitation Engineering</i>.</h3>
                             <p class="text-gray-600 mb-4">
@@ -127,7 +127,7 @@
                             </div>
                         </div>
                         
-                        <div class="bg-white rounded-xl shadow-md hover:shadow-lg transition-custom p-6 border-l-4 border-primary">
+                        <div class="bg-white rounded-xl shadow-md hover:shadow-lg transition-custom p-6 border-l-4 border-primary publication-item" data-category="journal">
                             <span class="text-sm font-medium text-primary bg-primary/10 px-3 py-1 rounded-full">2022</span>
                             <h3 class="font-bold text-xl mt-4 mb-2">Yang, J., Smith, R., & Chen, L. (2022). "A Comparison of Machine Learning Algorithms for Motor Imagery Classification in BCIs." <i>Journal of Neural Engineering</i>.</h3>
                             <p class="text-gray-600 mb-4">
@@ -158,7 +158,7 @@
                             </div>
                         </div>
                         
-                        <div class="bg-white rounded-xl shadow-md hover:shadow-lg transition-custom p-6 border-l-4 border-primary">
+                        <div class="bg-white rounded-xl shadow-md hover:shadow-lg transition-custom p-6 border-l-4 border-primary publication-item" data-category="journal">
                             <span class="text-sm font-medium text-primary bg-primary/10 px-3 py-1 rounded-full">2021</span>
                             <h3 class="font-bold text-xl mt-4 mb-2">Yang, J., & Zhang, W. (2021). "EEG-Based Emotion Recognition Using Convolutional Neural Networks." <i>Biomedical Signal Processing and Control</i>.</h3>
                             <p class="text-gray-600 mb-4">
@@ -204,8 +204,8 @@
                         <span>Conference Proceedings</span>
                     </h2>
                     
-                    <div class="space-y-6">
-                        <div class="bg-white rounded-xl shadow-md hover:shadow-lg transition-custom p-6 border-l-4 border-secondary">
+                    <div class="space-y-6" id="conference-publications">
+                        <div class="bg-white rounded-xl shadow-md hover:shadow-lg transition-custom p-6 border-l-4 border-secondary publication-item" data-category="conference">
                             <span class="text-sm font-medium text-secondary bg-secondary/10 px-3 py-1 rounded-full">2023</span>
                             <h3 class="font-bold text-xl mt-4 mb-2">Yang, J., & Johnson, S. (2023). "A Real-Time Adaptive BCI System for Stroke Rehabilitation." <i>Proceedings of the 11th International Conference on Neural Engineering (NER)</i>.</h3>
                             <p class="text-gray-600 mb-4">
@@ -232,7 +232,7 @@
                             </div>
                         </div>
                         
-                        <div class="bg-white rounded-xl shadow-md hover:shadow-lg transition-custom p-6 border-l-4 border-secondary">
+                        <div class="bg-white rounded-xl shadow-md hover:shadow-lg transition-custom p-6 border-l-4 border-secondary publication-item" data-category="conference">
                             <span class="text-sm font-medium text-secondary bg-secondary/10 px-3 py-1 rounded-full">2022</span>
                             <h3 class="font-bold text-xl mt-4 mb-2">Yang, J., Smith, R., & Chen, L. (2022). "A Comparison of Machine Learning Algorithms for Motor Imagery Classification in BCIs." <i>Proceedings of the 10th International Conference on Neural Engineering (NER)</i>.</h3>
                             <p class="text-gray-600 mb-4">
@@ -259,7 +259,7 @@
                             </div>
                         </div>
                         
-                        <div class="bg-white rounded-xl shadow-md hover:shadow-lg transition-custom p-6 border-l-4 border-secondary">
+                        <div class="bg-white rounded-xl shadow-md hover:shadow-lg transition-custom p-6 border-l-4 border-secondary publication-item" data-category="conference">
                             <span class="text-sm font-medium text-secondary bg-secondary/10 px-3 py-1 rounded-full">2021</span>
                             <h3 class="font-bold text-xl mt-4 mb-2">Yang, J., & Zhang, W. (2021). "Deep Learning-Based EEG Signal Enhancement for BCI Applications." <i>Proceedings of the 9th International Conference on Brain-Computer Interface (BCI)</i>.</h3>
                             <p class="text-gray-600 mb-4">
@@ -291,31 +291,11 @@
         </section>
 
         <!-- 论文分页 -->
-        <section class="py-12 bg-white">
+        <section class="py-12 bg-white" id="pagination-section">
             <div class="container mx-auto px-4">
                 <div class="max-w-4xl mx-auto text-center">
-                    <div class="inline-flex rounded-md shadow-sm" role="group">
-                        <button type="button" class="px-4 py-2 text-sm font-medium text-gray-500 bg-white border border-gray-300 rounded-l-lg hover:bg-gray-100 focus:z-10 focus:ring-2 focus:ring-primary focus:text-primary transition-custom">
-                            Previous
-                        </button>
-                        <button type="button" class="px-4 py-2 text-sm font-medium text-white bg-primary border border-primary hover:bg-primary/90 transition-custom">
-                            1
-                        </button>
-                        <button type="button" class="px-4 py-2 text-sm font-medium text-gray-700 bg-white border border-gray-300 hover:bg-gray-100 focus:z-10 focus:ring-2 focus:ring-primary focus:text-primary transition-custom">
-                            2
-                        </button>
-                        <button type="button" class="px-4 py-2 text-sm font-medium text-gray-700 bg-white border border-gray-300 hover:bg-gray-100 focus:z-10 focus:ring-2 focus:ring-primary focus:text-primary transition-custom">
-                            3
-                        </button>
-                        <span class="px-4 py-2 text-sm font-medium text-gray-700 bg-white border border-gray-300">
-                            ...
-                        </span>
-                        <button type="button" class="px-4 py-2 text-sm font-medium text-gray-700 bg-white border border-gray-300 hover:bg-gray-100 focus:z-10 focus:ring-2 focus:ring-primary focus:text-primary transition-custom">
-                            8
-                        </button>
-                        <button type="button" class="px-4 py-2 text-sm font-medium text-gray-500 bg-white border border-gray-300 rounded-r-lg hover:bg-gray-100 focus:z-10 focus:ring-2 focus:ring-primary focus:text-primary transition-custom">
-                            Next
-                        </button>
+                    <div class="inline-flex rounded-md shadow-sm" role="group" id="pagination-controls">
+                        <!-- Pagination will be generated by JavaScript -->
                     </div>
                 </div>
             </div>
@@ -374,14 +354,26 @@
             }
         }
 
+        // Pagination variables
+        let currentPage = 1;
+        let itemsPerPage = 3; // Show 3 publications per page
+        let currentFilter = 'all';
+        let allPublications = [];
+        let filteredPublications = [];
+
         // Publication filter functionality
         function initPublicationFilters() {
             const filterButtons = document.querySelectorAll('.filter-btn');
             const publicationSections = document.querySelectorAll('.publication-section');
+            
+            // Collect all publication items for pagination
+            allPublications = Array.from(document.querySelectorAll('.publication-item'));
 
             filterButtons.forEach(button => {
                 button.addEventListener('click', () => {
                     const filter = button.getAttribute('data-filter');
+                    currentFilter = filter;
+                    currentPage = 1; // Reset to first page when filtering
                     
                     // Update button states
                     filterButtons.forEach(btn => {
@@ -392,28 +384,117 @@
                     button.classList.remove('bg-gray-100', 'text-gray-700');
                     button.classList.add('bg-primary', 'text-white', 'active');
                     
-                    // Filter publications
-                    if (filter === 'all') {
-                        publicationSections.forEach(section => {
-                            section.style.display = 'block';
-                        });
-                    } else {
-                        publicationSections.forEach(section => {
-                            const category = section.getAttribute('data-category');
-                            if (category === filter) {
-                                section.style.display = 'block';
-                            } else {
-                                section.style.display = 'none';
-                            }
-                        });
-                    }
+                    // Filter and paginate publications
+                    filterAndPaginatePublications();
                 });
             });
         }
 
-        // Initialize filters after page loads
+        function filterAndPaginatePublications() {
+            // Filter publications based on current filter
+            if (currentFilter === 'all') {
+                filteredPublications = [...allPublications];
+            } else {
+                filteredPublications = allPublications.filter(item => {
+                    return item.getAttribute('data-category') === currentFilter;
+                });
+            }
+
+            // Hide all publications first
+            allPublications.forEach(item => {
+                item.style.display = 'none';
+            });
+
+            // Show current page publications
+            showCurrentPage();
+            
+            // Update pagination controls
+            updatePaginationControls();
+        }
+
+        function showCurrentPage() {
+            const startIndex = (currentPage - 1) * itemsPerPage;
+            const endIndex = startIndex + itemsPerPage;
+            
+            // Show publications for current page
+            for (let i = startIndex; i < endIndex && i < filteredPublications.length; i++) {
+                filteredPublications[i].style.display = 'block';
+            }
+        }
+
+        function updatePaginationControls() {
+            const totalPages = Math.ceil(filteredPublications.length / itemsPerPage);
+            const paginationControls = document.getElementById('pagination-controls');
+            const paginationSection = document.getElementById('pagination-section');
+            
+            // Hide pagination if only one page or no publications
+            if (totalPages <= 1) {
+                paginationSection.style.display = 'none';
+                return;
+            } else {
+                paginationSection.style.display = 'block';
+            }
+            
+            paginationControls.innerHTML = '';
+            
+            // Previous button
+            const prevButton = createPaginationButton('Previous', currentPage > 1, () => {
+                if (currentPage > 1) {
+                    currentPage--;
+                    filterAndPaginatePublications();
+                }
+            });
+            prevButton.classList.add('rounded-l-lg');
+            paginationControls.appendChild(prevButton);
+            
+            // Page number buttons
+            for (let i = 1; i <= totalPages; i++) {
+                const pageButton = createPaginationButton(i.toString(), true, () => {
+                    currentPage = i;
+                    filterAndPaginatePublications();
+                });
+                
+                if (i === currentPage) {
+                    pageButton.classList.remove('bg-white', 'text-gray-700');
+                    pageButton.classList.add('bg-primary', 'text-white');
+                }
+                
+                paginationControls.appendChild(pageButton);
+            }
+            
+            // Next button
+            const nextButton = createPaginationButton('Next', currentPage < totalPages, () => {
+                if (currentPage < totalPages) {
+                    currentPage++;
+                    filterAndPaginatePublications();
+                }
+            });
+            nextButton.classList.add('rounded-r-lg');
+            paginationControls.appendChild(nextButton);
+        }
+
+        function createPaginationButton(text, enabled, onClick) {
+            const button = document.createElement('button');
+            button.type = 'button';
+            button.textContent = text;
+            button.className = 'px-4 py-2 text-sm font-medium border border-gray-300 transition-custom';
+            
+            if (enabled) {
+                button.classList.add('text-gray-700', 'bg-white', 'hover:bg-gray-100', 'focus:z-10', 'focus:ring-2', 'focus:ring-primary', 'focus:text-primary');
+                button.addEventListener('click', onClick);
+            } else {
+                button.classList.add('text-gray-500', 'bg-white', 'cursor-not-allowed');
+                button.disabled = true;
+            }
+            
+            return button;
+        }
+
+        // Initialize filters and pagination after page loads
         document.addEventListener('DOMContentLoaded', () => {
             initPublicationFilters();
+            // Initialize with all publications shown
+            filterAndPaginatePublications();
         });
     </script>
 </body>
