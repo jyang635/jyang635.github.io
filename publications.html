@@ -55,6 +55,15 @@
                     <p class="text-lg md:text-xl text-gray-600">
                         A collection of my published research papers and conference presentations in the field of Brain-Computer Interfaces (and scRNA-seq).
                     </p>
+                    <div class="mt-8">
+                        <a href="https://orcid.org/0000-0001-9147-5789" target="_blank" class="inline-flex items-center gap-3 bg-white px-6 py-3 rounded-full shadow-md hover:shadow-lg transition-custom text-gray-700 hover:text-primary">
+                            <div class="w-8 h-8 bg-green-500 rounded-full flex items-center justify-center">
+                                <i class="fa fa-id-badge text-white text-sm"></i>
+                            </div>
+                            <span class="font-medium">View Complete Publication List on ORCID</span>
+                            <i class="fa fa-external-link text-sm"></i>
+                        </a>
+                    </div>
                 </div>
             </div>
         </section>
@@ -84,207 +93,28 @@
             </div>
         </section>
 
-        <!-- 期刊论文 -->
-        <section class="py-16 bg-gray-50 publication-section" data-category="journal">
+        <!-- Dynamic Publications from ORCID -->
+        <section class="py-16 bg-white" id="dynamic-publications-section">
             <div class="container mx-auto px-4">
                 <div class="max-w-4xl mx-auto">
                     <h2 class="text-2xl font-bold mb-8 flex items-center gap-3">
-                        <span class="w-10 h-10 bg-primary/10 rounded-full flex items-center justify-center">
-                            <i class="fa fa-book text-primary"></i>
+                        <span class="w-10 h-10 bg-accent/10 rounded-full flex items-center justify-center">
+                            <i class="fa fa-id-badge text-accent"></i>
                         </span>
-                        <span>Journal Papers</span>
+                        <span>Publications from ORCID</span>
                     </h2>
                     
-                        <div class="space-y-6" id="journal-publications">
-                        <div class="bg-white rounded-xl shadow-md hover:shadow-lg transition-custom p-6 border-l-4 border-primary publication-item" data-category="journal">
-                            <span class="text-sm font-medium text-primary bg-primary/10 px-3 py-1 rounded-full">2023</span>
-                            <h3 class="font-bold text-xl mt-4 mb-2">Yang, J., & Johnson, S. (2023). "Adaptive Deep Learning Framework for EEG Signal Enhancement in Brain-Computer Interfaces." <i>IEEE Transactions on Neural Systems and Rehabilitation Engineering</i>.</h3>
-                            <p class="text-gray-600 mb-4">
-                                This paper presents a novel adaptive deep learning framework for enhancing EEG signals in noisy environments, improving the performance of non-invasive BCIs.
-                            </p>
-                            <div class="flex flex-wrap gap-3 mb-4">
-                                <span class="text-xs font-medium text-gray-700 bg-gray-100 px-3 py-1 rounded-full">EEG Processing</span>
-                                <span class="text-xs font-medium text-gray-700 bg-gray-100 px-3 py-1 rounded-full">Deep Learning</span>
-                                <span class="text-xs font-medium text-gray-700 bg-gray-100 px-3 py-1 rounded-full">Signal Enhancement</span>
-                            </div>
-                            <div class="flex flex-wrap gap-4">
-                                <a href="#" class="text-primary font-medium hover:text-primary/80 flex items-center gap-2 transition-custom">
-                                    <i class="fa fa-file-pdf-o"></i>
-                                    <span>PDF</span>
-                                </a>
-                                <a href="#" class="text-gray-600 font-medium hover:text-gray-800 flex items-center gap-2 transition-custom">
-                                    <i class="fa fa-database"></i>
-                                    <span>Dataset</span>
-                                </a>
-                                <a href="#" class="text-gray-600 font-medium hover:text-gray-800 flex items-center gap-2 transition-custom">
-                                    <i class="fa fa-code"></i>
-                                    <span>Code</span>
-                                </a>
-                                <a href="#" class="text-gray-600 font-medium hover:text-gray-800 flex items-center gap-2 transition-custom">
-                                    <i class="fa fa-external-link"></i>
-                                    <span>DOI: 10.1109/TNSRE.2023.3264578</span>
-                                </a>
-                            </div>
-                        </div>
-                        
-                        <div class="bg-white rounded-xl shadow-md hover:shadow-lg transition-custom p-6 border-l-4 border-primary publication-item" data-category="journal">
-                            <span class="text-sm font-medium text-primary bg-primary/10 px-3 py-1 rounded-full">2022</span>
-                            <h3 class="font-bold text-xl mt-4 mb-2">Yang, J., Smith, R., & Chen, L. (2022). "A Comparison of Machine Learning Algorithms for Motor Imagery Classification in BCIs." <i>Journal of Neural Engineering</i>.</h3>
-                            <p class="text-gray-600 mb-4">
-                                This study compares different machine learning algorithms for classifying motor imagery EEG signals, providing insights into which algorithms work best for different BCI applications.
-                            </p>
-                            <div class="flex flex-wrap gap-3 mb-4">
-                                <span class="text-xs font-medium text-gray-700 bg-gray-100 px-3 py-1 rounded-full">Motor Imagery</span>
-                                <span class="text-xs font-medium text-gray-700 bg-gray-100 px-3 py-1 rounded-full">Machine Learning</span>
-                                <span class="text-xs font-medium text-gray-700 bg-gray-100 px-3 py-1 rounded-full">Classification</span>
-                            </div>
-                            <div class="flex flex-wrap gap-4">
-                                <a href="#" class="text-primary font-medium hover:text-primary/80 flex items-center gap-2 transition-custom">
-                                    <i class="fa fa-file-pdf-o"></i>
-                                    <span>PDF</span>
-                                </a>
-                                <a href="#" class="text-gray-600 font-medium hover:text-gray-800 flex items-center gap-2 transition-custom">
-                                    <i class="fa fa-database"></i>
-                                    <span>Dataset</span>
-                                </a>
-                                <a href="#" class="text-gray-600 font-medium hover:text-gray-800 flex items-center gap-2 transition-custom">
-                                    <i class="fa fa-code"></i>
-                                    <span>Code</span>
-                                </a>
-                                <a href="#" class="text-gray-600 font-medium hover:text-gray-800 flex items-center gap-2 transition-custom">
-                                    <i class="fa fa-external-link"></i>
-                                    <span>DOI: 10.1088/1741-2552/ac7c5a</span>
-                                </a>
-                            </div>
-                        </div>
-                        
-                        <div class="bg-white rounded-xl shadow-md hover:shadow-lg transition-custom p-6 border-l-4 border-primary publication-item" data-category="journal">
-                            <span class="text-sm font-medium text-primary bg-primary/10 px-3 py-1 rounded-full">2021</span>
-                            <h3 class="font-bold text-xl mt-4 mb-2">Yang, J., & Zhang, W. (2021). "EEG-Based Emotion Recognition Using Convolutional Neural Networks." <i>Biomedical Signal Processing and Control</i>.</h3>
-                            <p class="text-gray-600 mb-4">
-                                This paper presents a convolutional neural network approach for emotion recognition from EEG signals, achieving high accuracy in classifying different emotional states.
-                            </p>
-                            <div class="flex flex-wrap gap-3 mb-4">
-                                <span class="text-xs font-medium text-gray-700 bg-gray-100 px-3 py-1 rounded-full">Emotion Recognition</span>
-                                <span class="text-xs font-medium text-gray-700 bg-gray-100 px-3 py-1 rounded-full">CNN</span>
-                                <span class="text-xs font-medium text-gray-700 bg-gray-100 px-3 py-1 rounded-full">EEG</span>
-                            </div>
-                            <div class="flex flex-wrap gap-4">
-                                <a href="#" class="text-primary font-medium hover:text-primary/80 flex items-center gap-2 transition-custom">
-                                    <i class="fa fa-file-pdf-o"></i>
-                                    <span>PDF</span>
-                                </a>
-                                <a href="#" class="text-gray-600 font-medium hover:text-gray-800 flex items-center gap-2 transition-custom">
-                                    <i class="fa fa-database"></i>
-                                    <span>Dataset</span>
-                                </a>
-                                <a href="#" class="text-gray-600 font-medium hover:text-gray-800 flex items-center gap-2 transition-custom">
-                                    <i class="fa fa-code"></i>
-                                    <span>Code</span>
-                                </a>
-                                <a href="#" class="text-gray-600 font-medium hover:text-gray-800 flex items-center gap-2 transition-custom">
-                                    <i class="fa fa-external-link"></i>
-                                    <span>DOI: 10.1016/j.bspc.2021.102678</span>
-                                </a>
-                            </div>
+                    <!-- Loading indicator -->
+                    <div id="loading-publications" class="text-center py-8" style="display: none;">
+                        <div class="inline-flex items-center gap-3">
+                            <div class="animate-spin rounded-full h-6 w-6 border-b-2 border-primary"></div>
+                            <span class="text-gray-600">Loading publications from ORCID...</span>
                         </div>
                     </div>
-                </div>
-            </div>
-        </section>
-
-        <!-- 会议论文 -->
-        <section class="py-16 bg-white publication-section" data-category="conference">
-            <div class="container mx-auto px-4">
-                <div class="max-w-4xl mx-auto">
-                    <h2 class="text-2xl font-bold mb-8 flex items-center gap-3">
-                        <span class="w-10 h-10 bg-secondary/10 rounded-full flex items-center justify-center">
-                            <i class="fa fa-users text-secondary"></i>
-                        </span>
-                        <span>Conference Proceedings</span>
-                    </h2>
                     
-                    <div class="space-y-6" id="conference-publications">
-                        <div class="bg-white rounded-xl shadow-md hover:shadow-lg transition-custom p-6 border-l-4 border-secondary publication-item" data-category="conference">
-                            <span class="text-sm font-medium text-secondary bg-secondary/10 px-3 py-1 rounded-full">2023</span>
-                            <h3 class="font-bold text-xl mt-4 mb-2">Yang, J., & Johnson, S. (2023). "A Real-Time Adaptive BCI System for Stroke Rehabilitation." <i>Proceedings of the 11th International Conference on Neural Engineering (NER)</i>.</h3>
-                            <p class="text-gray-600 mb-4">
-                                This paper presents a real-time adaptive BCI system designed specifically for stroke rehabilitation, demonstrating improved performance over traditional non-adaptive systems.
-                            </p>
-                            <div class="flex flex-wrap gap-3 mb-4">
-                                <span class="text-xs font-medium text-gray-700 bg-gray-100 px-3 py-1 rounded-full">Stroke Rehabilitation</span>
-                                <span class="text-xs font-medium text-gray-700 bg-gray-100 px-3 py-1 rounded-full">Real-Time BCI</span>
-                                <span class="text-xs font-medium text-gray-700 bg-gray-100 px-3 py-1 rounded-full">Adaptive Systems</span>
-                            </div>
-                            <div class="flex flex-wrap gap-4">
-                                <a href="#" class="text-secondary font-medium hover:text-secondary/80 flex items-center gap-2 transition-custom">
-                                    <i class="fa fa-file-pdf-o"></i>
-                                    <span>PDF</span>
-                                </a>
-                                <a href="#" class="text-gray-600 font-medium hover:text-gray-800 flex items-center gap-2 transition-custom">
-                                    <i class="fa fa-slideshare"></i>
-                                    <span>Slides</span>
-                                </a>
-                                <a href="#" class="text-gray-600 font-medium hover:text-gray-800 flex items-center gap-2 transition-custom">
-                                    <i class="fa fa-external-link"></i>
-                                    <span>DOI: 10.1109/NER56348.2023.10135-7</span>
-                                </a>
-                            </div>
-                        </div>
-                        
-                        <div class="bg-white rounded-xl shadow-md hover:shadow-lg transition-custom p-6 border-l-4 border-secondary publication-item" data-category="conference">
-                            <span class="text-sm font-medium text-secondary bg-secondary/10 px-3 py-1 rounded-full">2022</span>
-                            <h3 class="font-bold text-xl mt-4 mb-2">Yang, J., Smith, R., & Chen, L. (2022). "A Comparison of Machine Learning Algorithms for Motor Imagery Classification in BCIs." <i>Proceedings of the 10th International Conference on Neural Engineering (NER)</i>.</h3>
-                            <p class="text-gray-600 mb-4">
-                                This study compares different machine learning algorithms for classifying motor imagery EEG signals, providing insights into which algorithms work best for different BCI applications.
-                            </p>
-                            <div class="flex flex-wrap gap-3 mb-4">
-                                <span class="text-xs font-medium text-gray-700 bg-gray-100 px-3 py-1 rounded-full">Motor Imagery</span>
-                                <span class="text-xs font-medium text-gray-700 bg-gray-100 px-3 py-1 rounded-full">Machine Learning</span>
-                                <span class="text-xs font-medium text-gray-700 bg-gray-100 px-3 py-1 rounded-full">Classification</span>
-                            </div>
-                            <div class="flex flex-wrap gap-4">
-                                <a href="#" class="text-secondary font-medium hover:text-secondary/80 flex items-center gap-2 transition-custom">
-                                    <i class="fa fa-file-pdf-o"></i>
-                                    <span>PDF</span>
-                                </a>
-                                <a href="#" class="text-gray-600 font-medium hover:text-gray-800 flex items-center gap-2 transition-custom">
-                                    <i class="fa fa-slideshare"></i>
-                                    <span>Slides</span>
-                                </a>
-                                <a href="#" class="text-gray-600 font-medium hover:text-gray-800 flex items-center gap-2 transition-custom">
-                                    <i class="fa fa-external-link"></i>
-                                    <span>DOI: 10.1109/NER54554.2022.9836123</span>
-                                </a>
-                            </div>
-                        </div>
-                        
-                        <div class="bg-white rounded-xl shadow-md hover:shadow-lg transition-custom p-6 border-l-4 border-secondary publication-item" data-category="conference">
-                            <span class="text-sm font-medium text-secondary bg-secondary/10 px-3 py-1 rounded-full">2021</span>
-                            <h3 class="font-bold text-xl mt-4 mb-2">Yang, J., & Zhang, W. (2021). "Deep Learning-Based EEG Signal Enhancement for BCI Applications." <i>Proceedings of the 9th International Conference on Brain-Computer Interface (BCI)</i>.</h3>
-                            <p class="text-gray-600 mb-4">
-                                This paper presents a deep learning approach for enhancing EEG signals in noisy environments, improving the performance of BCI systems for individuals with motor disabilities.
-                            </p>
-                            <div class="flex flex-wrap gap-3 mb-4">
-                                <span class="text-xs font-medium text-gray-700 bg-gray-100 px-3 py-1 rounded-full">Signal Enhancement</span>
-                                <span class="text-xs font-medium text-gray-700 bg-gray-100 px-3 py-1 rounded-full">Deep Learning</span>
-                                <span class="text-xs font-medium text-gray-700 bg-gray-100 px-3 py-1 rounded-full">EEG</span>
-                            </div>
-                            <div class="flex flex-wrap gap-4">
-                                <a href="#" class="text-secondary font-medium hover:text-secondary/80 flex items-center gap-2 transition-custom">
-                                    <i class="fa fa-file-pdf-o"></i>
-                                    <span>PDF</span>
-                                </a>
-                                <a href="#" class="text-gray-600 font-medium hover:text-gray-800 flex items-center gap-2 transition-custom">
-                                    <i class="fa fa-slideshare"></i>
-                                    <span>Slides</span>
-                                </a>
-                                <a href="#" class="text-gray-600 font-medium hover:text-gray-800 flex items-center gap-2 transition-custom">
-                                    <i class="fa fa-external-link"></i>
-                                    <span>DOI: 10.1109/BCI53124.2021.9566348</span>
-                                </a>
-                            </div>
-                        </div>
+                    <!-- Dynamic publications container -->
+                    <div class="space-y-6" id="dynamic-publications">
+                        <!-- Publications will be loaded here dynamically -->
                     </div>
                 </div>
             </div>
@@ -352,6 +182,106 @@
                     }
                 });
             }
+        }
+
+        // ORCID Configuration
+        const ORCID_ID = 'YOUR-ORCID-ID'; // Replace with your actual ORCID ID
+        const ORCID_API_BASE = 'https://pub.orcid.org/v3.0/';
+        
+        // Fetch publications from ORCID
+        async function fetchORCIDPublications() {
+            try {
+                const response = await fetch(`${ORCID_API_BASE}${ORCID_ID}/works`, {
+                    headers: {
+                        'Accept': 'application/json'
+                    }
+                });
+                
+                if (!response.ok) {
+                    throw new Error('Failed to fetch ORCID data');
+                }
+                
+                const data = await response.json();
+                return data.group || [];
+            } catch (error) {
+                console.error('Error fetching ORCID publications:', error);
+                return [];
+            }
+        }
+
+        // Process and display ORCID publications
+        async function displayORCIDPublications() {
+            const loadingIndicator = document.getElementById('loading-publications');
+            const publicationsContainer = document.getElementById('dynamic-publications');
+            
+            if (loadingIndicator) loadingIndicator.style.display = 'block';
+            
+            try {
+                const publications = await fetchORCIDPublications();
+                
+                if (publications.length === 0) {
+                    // Fallback to static publications if ORCID fetch fails
+                    console.log('No ORCID publications found, using static content');
+                    return;
+                }
+                
+                // Clear existing content
+                if (publicationsContainer) {
+                    publicationsContainer.innerHTML = '';
+                    
+                    // Process each publication
+                    publications.forEach(async (group, index) => {
+                        const workSummary = group['work-summary'][0];
+                        const putCode = workSummary['put-code'];
+                        
+                        // Fetch detailed information for each publication
+                        const detailResponse = await fetch(`${ORCID_API_BASE}${ORCID_ID}/work/${putCode}`, {
+                            headers: {
+                                'Accept': 'application/json'
+                            }
+                        });
+                        
+                        if (detailResponse.ok) {
+                            const detail = await detailResponse.json();
+                            const publicationElement = createPublicationElement(detail);
+                            publicationsContainer.appendChild(publicationElement);
+                        }
+                    });
+                }
+            } catch (error) {
+                console.error('Error displaying ORCID publications:', error);
+            } finally {
+                if (loadingIndicator) loadingIndicator.style.display = 'none';
+            }
+        }
+
+        // Create publication HTML element from ORCID data
+        function createPublicationElement(work) {
+            const title = work.title?.title?.value || 'Untitled';
+            const journal = work['journal-title']?.value || 'Unknown Journal';
+            const year = work['publication-date']?.year?.value || 'Unknown Year';
+            const doi = work['external-ids']?.['external-id']?.find(id => id.type === 'doi')?.value || null;
+            
+            const publicationDiv = document.createElement('div');
+            publicationDiv.className = 'bg-white rounded-xl shadow-md hover:shadow-lg transition-custom p-6 border-l-4 border-primary publication-item';
+            publicationDiv.setAttribute('data-category', 'journal'); // You might want to categorize based on work type
+            
+            publicationDiv.innerHTML = `
+                <span class="text-sm font-medium text-primary bg-primary/10 px-3 py-1 rounded-full">${year}</span>
+                <h3 class="font-bold text-xl mt-4 mb-2">${title} <i>${journal}</i></h3>
+                <div class="flex flex-wrap gap-4 mt-4">
+                    ${doi ? `<a href="https://doi.org/${doi}" target="_blank" class="text-primary font-medium hover:text-primary/80 flex items-center gap-2 transition-custom">
+                        <i class="fa fa-external-link"></i>
+                        <span>DOI: ${doi}</span>
+                    </a>` : ''}
+                    <a href="https://orcid.org/${ORCID_ID}" target="_blank" class="text-gray-600 font-medium hover:text-gray-800 flex items-center gap-2 transition-custom">
+                        <i class="fa fa-id-badge"></i>
+                        <span>ORCID</span>
+                    </a>
+                </div>
+            `;
+            
+            return publicationDiv;
         }
 
         // Pagination variables
@@ -492,6 +422,10 @@
 
         // Initialize filters and pagination after page loads
         document.addEventListener('DOMContentLoaded', () => {
+            // Initialize ORCID publications first
+            displayORCIDPublications();
+            
+            // Then initialize filters and pagination
             initPublicationFilters();
             // Initialize with all publications shown
             filterAndPaginatePublications();
