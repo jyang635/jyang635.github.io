@@ -191,20 +191,43 @@
         // Fetch publications from ORCID
         async function fetchORCIDPublications() {
             try {
+                // Try the primary API endpoint first
                 const response = await fetch(`${ORCID_API_BASE}${ORCID_ID}/works`, {
+                    method: 'GET',
                     headers: {
-                        'Accept': 'application/json'
-                    }
+                        'Accept': 'application/json',
+                        'Content-Type': 'application/json'
+                    },
+                    mode: 'cors'
                 });
                 
                 if (!response.ok) {
-                    throw new Error('Failed to fetch ORCID data');
+                    throw new Error(`HTTP error! status: ${response.status}`);
                 }
                 
                 const data = await response.json();
                 return data.group || [];
             } catch (error) {
-                console.error('Error fetching ORCID publications:', error);
+                console.error('Primary ORCID API failed:', error);
+                
+                // Try alternative approach - fetch from ORCID public page
+                try {
+                    const publicResponse = await fetch(`https://pub.orcid.org/v3.0/${ORCID_ID}/works`, {
+                        method: 'GET',
+                        headers: {
+                            'Accept': 'application/json'
+                        }
+                    });
+                    
+                    if (publicResponse.ok) {
+                        const publicData = await publicResponse.json();
+                        return publicData.group || [];
+                    }
+                } catch (altError) {
+                    console.error('Alternative ORCID API also failed:', altError);
+                }
+                
+                // If all fails, return empty array to trigger fallback
                 return [];
             }
         }
@@ -220,8 +243,31 @@
                 const publications = await fetchORCIDPublications();
                 
                 if (publications.length === 0) {
-                    // Fallback to static publications if ORCID fetch fails
-                    console.log('No ORCID publications found, using static content');
+                    // Show fallback message when ORCID fetch fails
+                    console.log('No ORCID publications found, showing fallback message');
+                    if (publicationsContainer) {
+                        publicationsContainer.innerHTML = `
+                            <div class="bg-yellow-50 border border-yellow-200 rounded-xl p-6 text-center">
+                                <div class="flex items-center justify-center gap-3 mb-4">
+                                    <i class="fa fa-exclamation-triangle text-yellow-600 text-2xl"></i>
+                                    <h3 class="text-lg font-semibold text-yellow-800">Publications Loading Issue</h3>
+                                </div>
+                                <p class="text-yellow-700 mb-4">
+                                    Unable to automatically load publications from ORCID at this time. This could be due to network restrictions or API limitations.
+                                </p>
+                                <div class="flex flex-wrap gap-4 justify-center">
+                                    <a href="https://orcid.org/${ORCID_ID}" target="_blank" class="inline-flex items-center gap-2 bg-yellow-600 text-white px-4 py-2 rounded-lg hover:bg-yellow-700 transition-custom">
+                                        <i class="fa fa-external-link"></i>
+                                        <span>View Publications on ORCID</span>
+                                    </a>
+                                    <button onclick="displayORCIDPublications()" class="inline-flex items-center gap-2 bg-gray-600 text-white px-4 py-2 rounded-lg hover:bg-gray-700 transition-custom">
+                                        <i class="fa fa-refresh"></i>
+                                        <span>Retry Loading</span>
+                                    </button>
+                                </div>
+                            </div>
+                        `;
+                    }
                     return;
                 }
                 
@@ -230,26 +276,52 @@
                     publicationsContainer.innerHTML = '';
                     
                     // Process each publication
-                    publications.forEach(async (group, index) => {
+                    const promises = publications.map(async (group, index) => {
                         const workSummary = group['work-summary'][0];
                         const putCode = workSummary['put-code'];
                         
-                        // Fetch detailed information for each publication
-                        const detailResponse = await fetch(`${ORCID_API_BASE}${ORCID_ID}/work/${putCode}`, {
-                            headers: {
-                                'Accept': 'application/json'
+                        try {
+                            // Fetch detailed information for each publication
+                            const detailResponse = await fetch(`${ORCID_API_BASE}${ORCID_ID}/work/${putCode}`, {
+                                headers: {
+                                    'Accept': 'application/json'
+                                }
+                            });
+                            
+                            if (detailResponse.ok) {
+                                const detail = await detailResponse.json();
+                                const publicationElement = createPublicationElement(detail);
+                                publicationsContainer.appendChild(publicationElement);
                             }
-                        });
-                        
-                        if (detailResponse.ok) {
-                            const detail = await detailResponse.json();
-                            const publicationElement = createPublicationElement(detail);
-                            publicationsContainer.appendChild(publicationElement);
+                        } catch (error) {
+                            console.error(`Error fetching publication ${putCode}:`, error);
                         }
                     });
+                    
+                    // Wait for all publications to be processed
+                    await Promise.all(promises);
                 }
             } catch (error) {
                 console.error('Error displaying ORCID publications:', error);
+                
+                // Show error message
+                if (publicationsContainer) {
+                    publicationsContainer.innerHTML = `
+                        <div class="bg-red-50 border border-red-200 rounded-xl p-6 text-center">
+                            <div class="flex items-center justify-center gap-3 mb-4">
+                                <i class="fa fa-exclamation-circle text-red-600 text-2xl"></i>
+                                <h3 class="text-lg font-semibold text-red-800">Error Loading Publications</h3>
+                            </div>
+                            <p class="text-red-700 mb-4">
+                                There was an error loading publications from ORCID. Please try again later or visit the ORCID profile directly.
+                            </p>
+                            <a href="https://orcid.org/${ORCID_ID}" target="_blank" class="inline-flex items-center gap-2 bg-red-600 text-white px-4 py-2 rounded-lg hover:bg-red-700 transition-custom">
+                                <i class="fa fa-external-link"></i>
+                                <span>View on ORCID</span>
+                            </a>
+                        </div>
+                    `;
+                }
             } finally {
                 if (loadingIndicator) loadingIndicator.style.display = 'none';
             }
