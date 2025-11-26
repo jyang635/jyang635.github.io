@@ -1,6 +1,7 @@
 <!-- publications.html (出版物页面) -->
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -40,6 +41,7 @@
         }
     </style>
 </head>
+
 <body class="font-inter bg-light text-dark antialiased">
     <!-- 导航栏 -->
     <div id="navbar-placeholder"></div>
@@ -53,10 +55,12 @@
                     </h1>
                     <div class="w-20 h-1 bg-primary mx-auto my-6"></div>
                     <p class="text-lg md:text-xl text-gray-600">
-                        A collection of my published research papers and conference presentations in the field of Brain-Computer Interfaces (and scRNA-seq).
+                        A collection of my published research papers and conference presentations in the field of
+                        Brain-Computer Interfaces (and scRNA-seq).
                     </p>
                     <div class="mt-8">
-                        <a href="https://orcid.org/0000-0001-9147-5789" target="_blank" class="inline-flex items-center gap-3 bg-white px-6 py-3 rounded-full shadow-md hover:shadow-lg transition-custom text-gray-700 hover:text-primary">
+                        <a href="https://orcid.org/0000-0001-9147-5789" target="_blank"
+                            class="inline-flex items-center gap-3 bg-white px-6 py-3 rounded-full shadow-md hover:shadow-lg transition-custom text-gray-700 hover:text-primary">
                             <div class="w-8 h-8 bg-green-500 rounded-full flex items-center justify-center">
                                 <i class="fa fa-id-badge text-white text-sm"></i>
                             </div>
@@ -73,21 +77,22 @@
             <div class="container mx-auto px-4">
                 <div class="max-w-4xl mx-auto">
                     <div class="flex flex-wrap gap-4 justify-center mb-10" id="filter-buttons">
-                        <button data-filter="all" class="filter-btn px-6 py-2 bg-primary text-white rounded-full font-medium transition-custom hover:bg-primary/90 active">
+                        <button data-filter="all"
+                            class="filter-btn px-6 py-2 bg-primary text-white rounded-full font-medium transition-custom hover:bg-primary/90 active">
                             All Publications
                         </button>
-                        <button data-filter="journal" class="filter-btn px-6 py-2 bg-gray-100 text-gray-700 rounded-full font-medium transition-custom hover:bg-gray-200">
+                        <button data-filter="journal"
+                            class="filter-btn px-6 py-2 bg-gray-100 text-gray-700 rounded-full font-medium transition-custom hover:bg-gray-200">
                             Journal Papers
                         </button>
-                        <button data-filter="conference" class="filter-btn px-6 py-2 bg-gray-100 text-gray-700 rounded-full font-medium transition-custom hover:bg-gray-200">
+                        <button data-filter="conference"
+                            class="filter-btn px-6 py-2 bg-gray-100 text-gray-700 rounded-full font-medium transition-custom hover:bg-gray-200">
                             Conference Proceedings
                         </button>
-                        <button data-filter="workshop" class="filter-btn px-6 py-2 bg-gray-100 text-gray-700 rounded-full font-medium transition-custom hover:bg-gray-200">
+                        <button data-filter="workshop"
+                            class="filter-btn px-6 py-2 bg-gray-100 text-gray-700 rounded-full font-medium transition-custom hover:bg-gray-200">
                             Workshops
                         </button>
-                        <!-- <button data-filter="thesis" class="filter-btn px-6 py-2 bg-gray-100 text-gray-700 rounded-full font-medium transition-custom hover:bg-gray-200">
-                            Theses
-                        </button> -->
                     </div>
                 </div>
             </div>
@@ -103,7 +108,7 @@
                         </span>
                         <span>Publications from ORCID</span>
                     </h2>
-                    
+
                     <!-- Loading indicator -->
                     <div id="loading-publications" class="text-center py-8" style="display: none;">
                         <div class="inline-flex items-center gap-3">
@@ -111,7 +116,7 @@
                             <span class="text-gray-600">Loading publications from ORCID...</span>
                         </div>
                     </div>
-                    
+
                     <!-- Dynamic publications container -->
                     <div class="space-y-6" id="dynamic-publications">
                         <!-- Publications will be loaded here dynamically -->
@@ -134,61 +139,11 @@
 
     <!-- 页脚 -->
     <div id="footer-placeholder"></div>
+
     <script>
-        fetch('header.html')
-            .then(response => response.text())
-            .then(data => {
-                document.getElementById('navbar-placeholder').innerHTML = data;
-                
-                // 初始化导航栏功能 - 在头部加载后执行
-                initNavbarFeatures();
-            });
-        
-        fetch('footer.html')
-            .then(response => response.text())
-            .then(data => {
-                document.getElementById('footer-placeholder').innerHTML = data;
-            });
-
-        function initNavbarFeatures() {
-            // 移动端菜单切换
-            const menuBtn = document.getElementById('menuBtn');
-            const mobileMenu = document.getElementById('mobileMenu');
-            const header = document.getElementById('header');
-            
-            if (menuBtn && mobileMenu) {
-                menuBtn.addEventListener('click', () => {
-                    if (mobileMenu.classList.contains('opacity-0')) {
-                        mobileMenu.classList.remove('opacity-0', '-translate-y-full', 'pointer-events-none');
-                        mobileMenu.classList.add('opacity-100', 'translate-y-0', 'pointer-events-auto');
-                        menuBtn.innerHTML = '<i class="fa fa-times"></i>';
-                    } else {
-                        mobileMenu.classList.add('opacity-0', '-translate-y-full', 'pointer-events-none');
-                        mobileMenu.classList.remove('opacity-100', 'translate-y-0', 'pointer-events-auto');
-                        menuBtn.innerHTML = '<i class="fa fa-bars"></i>';
-                    }
-                });
-            }
-            
-            // 导航栏滚动效果
-            if (header) {
-                window.addEventListener('scroll', () => {
-                    if (window.scrollY > 50) {
-                        header.classList.add('py-2', 'shadow-md');
-                        header.classList.remove('py-3', 'shadow-sm');
-                    } else {
-                        header.classList.add('py-3', 'shadow-sm');
-                        header.classList.remove('py-2', 'shadow-md');
-                    }
-                });
-            }
-        }
-
-        // ORCID Configuration
-        const ORCID_ID = '0000-0001-9147-5789'; // Replace with your actual ORCID ID
+        const ORCID_ID = '0000-0001-9147-5789';
         const ORCID_API_BASE = 'https://pub.orcid.org/v3.0/';
-        
-        // Fetch publications from ORCID
+
         async function fetchORCIDPublications() {
             try {
                 // Try the primary API endpoint first
@@ -200,16 +155,16 @@
                     },
                     mode: 'cors'
                 });
-                
+
                 if (!response.ok) {
                     throw new Error(`HTTP error! status: ${response.status}`);
                 }
-                
+
                 const data = await response.json();
                 return data.group || [];
             } catch (error) {
                 console.error('Primary ORCID API failed:', error);
-                
+
                 // Try alternative approach - fetch from ORCID public page
                 try {
                     const publicResponse = await fetch(`https://pub.orcid.org/v3.0/${ORCID_ID}/works`, {
@@ -218,7 +173,7 @@
                             'Accept': 'application/json'
                         }
                     });
-                    
+
                     if (publicResponse.ok) {
                         const publicData = await publicResponse.json();
                         return publicData.group || [];
@@ -226,7 +181,7 @@
                 } catch (altError) {
                     console.error('Alternative ORCID API also failed:', altError);
                 }
-                
+
                 // If all fails, return empty array to trigger fallback
                 return [];
             }
@@ -236,50 +191,53 @@
         async function displayORCIDPublications() {
             const loadingIndicator = document.getElementById('loading-publications');
             const publicationsContainer = document.getElementById('dynamic-publications');
-            
+
             if (loadingIndicator) loadingIndicator.style.display = 'block';
-            
+
             try {
                 const publications = await fetchORCIDPublications();
-                
+
                 if (publications.length === 0) {
                     // Show fallback message when ORCID fetch fails
                     console.log('No ORCID publications found, showing fallback message');
                     if (publicationsContainer) {
                         publicationsContainer.innerHTML = `
-                            <div class="bg-yellow-50 border border-yellow-200 rounded-xl p-6 text-center">
-                                <div class="flex items-center justify-center gap-3 mb-4">
-                                    <i class="fa fa-exclamation-triangle text-yellow-600 text-2xl"></i>
-                                    <h3 class="text-lg font-semibold text-yellow-800">Publications Loading Issue</h3>
-                                </div>
-                                <p class="text-yellow-700 mb-4">
-                                    Unable to automatically load publications from ORCID at this time. This could be due to network restrictions or API limitations.
-                                </p>
-                                <div class="flex flex-wrap gap-4 justify-center">
-                                    <a href="https://orcid.org/${ORCID_ID}" target="_blank" class="inline-flex items-center gap-2 bg-yellow-600 text-white px-4 py-2 rounded-lg hover:bg-yellow-700 transition-custom">
-                                        <i class="fa fa-external-link"></i>
-                                        <span>View Publications on ORCID</span>
-                                    </a>
-                                    <button onclick="displayORCIDPublications()" class="inline-flex items-center gap-2 bg-gray-600 text-white px-4 py-2 rounded-lg hover:bg-gray-700 transition-custom">
-                                        <i class="fa fa-refresh"></i>
-                                        <span>Retry Loading</span>
-                                    </button>
-                                </div>
-                            </div>
-                        `;
+                <div class="bg-yellow-50 border border-yellow-200 rounded-xl p-6 text-center">
+                    <div class="flex items-center justify-center gap-3 mb-4">
+                        <i class="fa fa-exclamation-triangle text-yellow-600 text-2xl"></i>
+                        <h3 class="text-lg font-semibold text-yellow-800">Publications Loading Issue</h3>
+                    </div>
+                    <p class="text-yellow-700 mb-4">
+                        Unable to automatically load publications from ORCID at this time. This could be due to network
+                        restrictions or API limitations.
+                    </p>
+                    <div class="flex flex-wrap gap-4 justify-center">
+                        <a href="https://orcid.org/${ORCID_ID}" target="_blank"
+                            class="inline-flex items-center gap-2 bg-yellow-600 text-white px-4 py-2 rounded-lg hover:bg-yellow-700 transition-custom">
+                            <i class="fa fa-external-link"></i>
+                            <span>View Publications on ORCID</span>
+                        </a>
+                        <button onclick="displayORCIDPublications()"
+                            class="inline-flex items-center gap-2 bg-gray-600 text-white px-4 py-2 rounded-lg hover:bg-gray-700 transition-custom">
+                            <i class="fa fa-refresh"></i>
+                            <span>Retry Loading</span>
+                        </button>
+                    </div>
+                </div>
+                `;
                     }
                     return;
                 }
-                
+
                 // Clear existing content
                 if (publicationsContainer) {
                     publicationsContainer.innerHTML = '';
-                    
+
                     // Process each publication
                     const promises = publications.map(async (group, index) => {
                         const workSummary = group['work-summary'][0];
                         const putCode = workSummary['put-code'];
-                        
+
                         try {
                             // Fetch detailed information for each publication
                             const detailResponse = await fetch(`${ORCID_API_BASE}${ORCID_ID}/work/${putCode}`, {
@@ -287,7 +245,7 @@
                                     'Accept': 'application/json'
                                 }
                             });
-                            
+
                             if (detailResponse.ok) {
                                 const detail = await detailResponse.json();
                                 const publicationElement = createPublicationElement(detail);
@@ -297,30 +255,32 @@
                             console.error(`Error fetching publication ${putCode}:`, error);
                         }
                     });
-                    
+
                     // Wait for all publications to be processed
                     await Promise.all(promises);
                 }
             } catch (error) {
                 console.error('Error displaying ORCID publications:', error);
-                
+
                 // Show error message
                 if (publicationsContainer) {
                     publicationsContainer.innerHTML = `
-                        <div class="bg-red-50 border border-red-200 rounded-xl p-6 text-center">
-                            <div class="flex items-center justify-center gap-3 mb-4">
-                                <i class="fa fa-exclamation-circle text-red-600 text-2xl"></i>
-                                <h3 class="text-lg font-semibold text-red-800">Error Loading Publications</h3>
-                            </div>
-                            <p class="text-red-700 mb-4">
-                                There was an error loading publications from ORCID. Please try again later or visit the ORCID profile directly.
-                            </p>
-                            <a href="https://orcid.org/${ORCID_ID}" target="_blank" class="inline-flex items-center gap-2 bg-red-600 text-white px-4 py-2 rounded-lg hover:bg-red-700 transition-custom">
-                                <i class="fa fa-external-link"></i>
-                                <span>View on ORCID</span>
-                            </a>
-                        </div>
-                    `;
+                <div class="bg-red-50 border border-red-200 rounded-xl p-6 text-center">
+                    <div class="flex items-center justify-center gap-3 mb-4">
+                        <i class="fa fa-exclamation-circle text-red-600 text-2xl"></i>
+                        <h3 class="text-lg font-semibold text-red-800">Error Loading Publications</h3>
+                    </div>
+                    <p class="text-red-700 mb-4">
+                        There was an error loading publications from ORCID. Please try again later or visit the ORCID
+                        profile directly.
+                    </p>
+                    <a href="https://orcid.org/${ORCID_ID}" target="_blank"
+                        class="inline-flex items-center gap-2 bg-red-600 text-white px-4 py-2 rounded-lg hover:bg-red-700 transition-custom">
+                        <i class="fa fa-external-link"></i>
+                        <span>View on ORCID</span>
+                    </a>
+                </div>
+                `;
                 }
             } finally {
                 if (loadingIndicator) loadingIndicator.style.display = 'none';
@@ -333,26 +293,28 @@
             const journal = work['journal-title']?.value || 'Unknown Journal';
             const year = work['publication-date']?.year?.value || 'Unknown Year';
             const doi = work['external-ids']?.['external-id']?.find(id => id.type === 'doi')?.value || null;
-            
+
             const publicationDiv = document.createElement('div');
             publicationDiv.className = 'bg-white rounded-xl shadow-md hover:shadow-lg transition-custom p-6 border-l-4 border-primary publication-item';
             publicationDiv.setAttribute('data-category', 'journal'); // You might want to categorize based on work type
-            
+
             publicationDiv.innerHTML = `
                 <span class="text-sm font-medium text-primary bg-primary/10 px-3 py-1 rounded-full">${year}</span>
                 <h3 class="font-bold text-xl mt-4 mb-2">${title} <i>${journal}</i></h3>
                 <div class="flex flex-wrap gap-4 mt-4">
-                    ${doi ? `<a href="https://doi.org/${doi}" target="_blank" class="text-primary font-medium hover:text-primary/80 flex items-center gap-2 transition-custom">
+                    ${doi ? `<a href="https://doi.org/${doi}" target="_blank"
+                        class="text-primary font-medium hover:text-primary/80 flex items-center gap-2 transition-custom">
                         <i class="fa fa-external-link"></i>
                         <span>DOI: ${doi}</span>
                     </a>` : ''}
-                    <a href="https://orcid.org/${ORCID_ID}" target="_blank" class="text-gray-600 font-medium hover:text-gray-800 flex items-center gap-2 transition-custom">
+                    <a href="https://orcid.org/${ORCID_ID}" target="_blank"
+                        class="text-gray-600 font-medium hover:text-gray-800 flex items-center gap-2 transition-custom">
                         <i class="fa fa-id-badge"></i>
                         <span>ORCID</span>
                     </a>
                 </div>
-            `;
-            
+                `;
+
             return publicationDiv;
         }
 
@@ -367,7 +329,7 @@
         function initPublicationFilters() {
             const filterButtons = document.querySelectorAll('.filter-btn');
             const publicationSections = document.querySelectorAll('.publication-section');
-            
+
             // Collect all publication items for pagination
             allPublications = Array.from(document.querySelectorAll('.publication-item'));
 
@@ -376,16 +338,16 @@
                     const filter = button.getAttribute('data-filter');
                     currentFilter = filter;
                     currentPage = 1; // Reset to first page when filtering
-                    
+
                     // Update button states
                     filterButtons.forEach(btn => {
                         btn.classList.remove('bg-primary', 'text-white', 'active');
                         btn.classList.add('bg-gray-100', 'text-gray-700');
                     });
-                    
+
                     button.classList.remove('bg-gray-100', 'text-gray-700');
                     button.classList.add('bg-primary', 'text-white', 'active');
-                    
+
                     // Filter and paginate publications
                     filterAndPaginatePublications();
                 });
@@ -409,7 +371,7 @@
 
             // Show current page publications
             showCurrentPage();
-            
+
             // Update pagination controls
             updatePaginationControls();
         }
@@ -417,7 +379,7 @@
         function showCurrentPage() {
             const startIndex = (currentPage - 1) * itemsPerPage;
             const endIndex = startIndex + itemsPerPage;
-            
+
             // Show publications for current page
             for (let i = startIndex; i < endIndex && i < filteredPublications.length; i++) {
                 filteredPublications[i].style.display = 'block';
@@ -428,17 +390,14 @@
             const totalPages = Math.ceil(filteredPublications.length / itemsPerPage);
             const paginationControls = document.getElementById('pagination-controls');
             const paginationSection = document.getElementById('pagination-section');
-            
-            // Hide pagination if only one page or no publications
+            // Hide pagination if only one page or no publications 
             if (totalPages <= 1) {
                 paginationSection.style.display = 'none';
                 return;
             } else {
                 paginationSection.style.display = 'block';
             }
-            
             paginationControls.innerHTML = '';
-            
             // Previous button
             const prevButton = createPaginationButton('Previous', currentPage > 1, () => {
                 if (currentPage > 1) {
@@ -448,22 +407,23 @@
             });
             prevButton.classList.add('rounded-l-lg');
             paginationControls.appendChild(prevButton);
-            
+
             // Page number buttons
             for (let i = 1; i <= totalPages; i++) {
-                const pageButton = createPaginationButton(i.toString(), true, () => {
-                    currentPage = i;
-                    filterAndPaginatePublications();
-                });
-                
+                const pageButton = createPaginationButton(i.toString(), true,
+                    () => {
+                        currentPage = i;
+                        filterAndPaginatePublications();
+                    });
+
                 if (i === currentPage) {
                     pageButton.classList.remove('bg-white', 'text-gray-700');
                     pageButton.classList.add('bg-primary', 'text-white');
                 }
-                
+
                 paginationControls.appendChild(pageButton);
             }
-            
+
             // Next button
             const nextButton = createPaginationButton('Next', currentPage < totalPages, () => {
                 if (currentPage < totalPages) {
@@ -480,7 +440,6 @@
             button.type = 'button';
             button.textContent = text;
             button.className = 'px-4 py-2 text-sm font-medium border border-gray-300 transition-custom';
-            
             if (enabled) {
                 button.classList.add('text-gray-700', 'bg-white', 'hover:bg-gray-100', 'focus:z-10', 'focus:ring-2', 'focus:ring-primary', 'focus:text-primary');
                 button.addEventListener('click', onClick);
@@ -488,20 +447,19 @@
                 button.classList.add('text-gray-500', 'bg-white', 'cursor-not-allowed');
                 button.disabled = true;
             }
-            
             return button;
-        }
-
-        // Initialize filters and pagination after page loads
+        } // Initialize filters and pagination after page loads 
         document.addEventListener('DOMContentLoaded', () => {
             // Initialize ORCID publications first
             displayORCIDPublications();
-            
+
             // Then initialize filters and pagination
             initPublicationFilters();
             // Initialize with all publications shown
             filterAndPaginatePublications();
         });
     </script>
+    <script src="js/main.js"></script>
 </body>
+
 </html>
